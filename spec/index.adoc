@@ -23,7 +23,7 @@ Category: OGC® Encoding Standard +
 Editor:   Paul Daisey
 
 [title]
-= OGC® GeoPackage Elevation Extension =
+= OGC® GeoPackage Media Extension =
 
 Copyright © 2015 Open Geospatial Consortium. +
 To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ +
@@ -31,7 +31,7 @@ To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ +
 *Warning*
 
 This document is not an OGC Standard. This document is distributed for review and comment. This document is subject to change without notice and may not be referred to as an OGC Standard. +
-Document type:         	OGC® Discussion Paper +
+Document type:         	OGC® Draft GeoPackage Extension +
 Document subtype:   	if applicable +
 Document stage:        	Draft +
 Document language: 	    English +
@@ -63,11 +63,11 @@ _Recipients of this document are requested to submit, with their comments, notif
 
 == Abstract ==
 
-This OGC® Encoding Standard defines two GeoPackage Extensions for tiled, gridded elevation data.
+This draft OGC® Encoding Standard defines a GeoPackage Extensions for media associated with features or attributes.
 
 == Keywords ==
 
-ogcdoc, geopackage, sqlite, raster, tiles, vector, feature, data, storage, exchange, mobile, smartphone, tablet, elevation, tiff
+ogcdoc, geopackage, sqlite, raster, vector, feature, attributes, data, storage, exchange, mobile, smartphone, tablet, media
 
 
 toc::[]
@@ -78,7 +78,5 @@ include::0_introduction.adoc[]
 
 :numbered:
 
-include::1_tiled_gridded_elevation_data.adoc[]
-
-include::2_tiled_gridded_elevation_data_tiff.adoc[]
+include::1_media.adoc[]
 
