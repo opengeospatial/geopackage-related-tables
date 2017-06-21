@@ -7,11 +7,11 @@ Media
 
 === Introduction
 
-This extension provides a mechanism for storing multimedia content with features or attributes in a GeoPackage. Examples where this could be used include the following:
+This extension provides a mechanism for storing multimedia content with features in a GeoPackage. Examples where this could be used include the following:
 
 * Photographs
 * Audio or Video files
-  *	PDFs
+*	PDFs
 
 === Extension Author
 
@@ -27,7 +27,7 @@ New requirement dependent on http://www.geopackage.org/spec/#features[Clause 2.1
 
 === Applicability
 
-This extension applies to feature and attribute tables that are used to hold other media types.
+This extension defines a relationship between feature tables and aspatial tables that hold related media.
 
 === Scope
 
@@ -36,25 +36,25 @@ read-write
 === Requirements (Normative)
 
 ==== Table Definitions
-[[gpkg_ext_relations]]
+[[gpkgext_relations]]
 ===== Relations
 [[r1]]
 [caption=""]
 .Requirement 1
 ====
-A GeoPackage that complies with this extension SHALL contain a `gpkg_ext_relations` table or view as per <<gpkg_ext_relations_table>> and <<gpkg_ext_relations_sql>>.
+A GeoPackage that complies with this extension SHALL contain a `gpkgext_relations` table or view as per <<gpkgext_relations_table>> and <<gpkgext_relations_sql>>.
 ====
 
-[[gpkg_ext_relations_table]]
+[[gpkgext_relations_table]]
 .Extended Relations Table Definition
 [cols=",,,,,",options="header",]
 |=======================================================================
 |Column Name |Column Type |Column Description |Null |Default |Key
 |`id`|INTEGER|Autoincrement primary key|no||PK
 |`primary_table_name`|TEXT|Name of the table containing the features or attributes|no||
-|`primary_column`|TEXT|Name of the column in `primary_table_name` containing references to media|no||
-|`foreign_table_name`|TEXT|Name of the table containing the features or attributes|no||
-|`fk_column`|TEXT|Name of the primary key column in `foreign_table_name` used as the foreign key to join with `primary_table_name`|no||
+|`primary_column`|TEXT|Name of the primary key column in `primary_table_name` |no||
+|`foreign_table_name`|TEXT|Name of the table containing the media|no||
+|`foreign_column`|TEXT|Name of the foreign key column in `foreign_table_name` used as the foreign key to join with `primary_table_name` on the `primary_column` |no||
 |`relation_name`|TEXT|Name of the relation ('media' for this extension)|no||
 |=======================================================================
 
@@ -72,8 +72,9 @@ A GeoPackage that complies with this extension SHALL contain one or more user-de
 |=======================================================================
 |Column Name |Column Type |Column Description |Null |Key
 |`id`|INTEGER	|Autoincrement primary key|no|PK
-|`data`|BLOB	|Multimedia content|yes|
-|`content_type`|TEXT	|mime_type of data|yes|
+|`data`|BLOB	|Multimedia content|no|
+|`content_type`|TEXT	|mime_type of data|no|
+|_foreign_column_|TEXT	|foreign key as defined in <<gpkgext_relations_table>>|yes|FK
 |=======================================================================
 
 ==== Table Values
@@ -82,7 +83,7 @@ A GeoPackage that complies with this extension SHALL contain one or more user-de
 [caption=""]
 .Requirement 3
 ====
-A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_extensions` table as described in <<gpkg_extensions_records>>. There SHALL be a row for `gpkg_ext_relations`, one row for each user-defined table containing references to media, and one row for each user-defined media table. For each user-defined table row, there SHALL be a table with the name specified in `table_name` and that table SHALL contain a column with the name specified in `primary_column`.
+A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_extensions` table as described in <<gpkg_extensions_records>>. There SHALL be a row for `gpkgext_relations`.
 ====
 
 [[gpkg_extensions_records]]
@@ -90,9 +91,7 @@ A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_e
 [cols=",,,,",options="header",]
 |=======================================================================
 |table_name|column_name|extension_name|definition|scope
-|`gpkg_ext_relations`|null|`gpkg_draft_media`|TBD|`read-write`
-|_user-defined table name_|_primary column_|`gpkg_draft_media`|TBD|`read-write`
-|_user-defined media table name_|null|`gpkg_draft_media`|TBD|`read-write`
+|`gpkgext_relations`|null|`gpkg_draft_media`|TBD|`read-write`
 |=======================================================================
 
 ===== Extended Relations
@@ -100,50 +99,50 @@ A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_e
 [caption=""]
 .Requirement 4
 ====
-For each row in `gpkg_extensions` with an `extension_name` of 'gpkg_draft_media' and a non-null `column_name`, there SHALL be a table or view of the name referenced in `table_name` and that table SHALL have a column of the name referenced in `column_name`.
+For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `primary_table_name` and that table SHALL have an entry in gpkg_contents with a data_type of `features`.
 ====
 
 [[r5]]
 [caption=""]
 .Requirement 5
 ====
-For each row in `gpkg_extensions` with an `extension_name` of 'gpkg_draft_media' and non-null `column_name`, there SHALL be a table or view of the name referenced in `table_name` and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
+
+For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in gpkg_contents with a data_type of `aspatial` and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
+
 ====
 
 [[r6]]
 [caption=""]
 .Requirement 6
 ====
-For user-defined tables as referenced in `gpkg_extensions` and `gpkg_ext_relations`, if the value of its primary column (as specified in <<gpkg_extensions_records>>) is not null, the user-defined media table (specified by `gpkg_ext_relations`) SHALL contain a row with an `id` corresponding to the value in the primary column (also specified by `gpkg_ext_relations`).
+For user-defined media tables as referenced in `gpkgext_relations`, if the value of its foreign column (as specified in <<gpkgext_relations_table>>) is not null, the corresponding user-defined primary table (specified by `gpkgext_relations`) SHALL contain a row with an `id` corresponding to the value in that foreign column.
 ====
 For example:
 
-* `gpkg_extensions` contains a row with:
-** `table_name` of 'features'
-** `column_name` of 'media_fk'
-* `gpkg_extensions` contains a row with:
-** `table_name` of 'media'
-** null `column_name`
-* `gpkg_ext_relations` contains a row with:
+* `gpkgext_relations` contains a row with:
 ** `primary_table_name` of 'features'
-** `primary_column` of `media_fk`
+** `primary_column` of `relation_column`
 ** `foreign_table_name` of 'media'
-** `fk_column` of 'id'
+** `foreign_column` of 'relation_column'
 ** `relation_name` of 'media'
 
-For each row of `features` with a non-null `media_fk`, there must be a row in `media` with a matching `id`.
+.features
+|=======================================================================
+|feature_id|primary_column|
+|1|7|
+|=======================================================================
 
-===== User Defined Media
-[[r7]]
-[caption=""]
-.Requirement 7
-====
-For a particular row of a user-defined media table, if the value of `data` is not null, the value of `content_type` SHALL NOT be null.
-====
+.media
+|=======================================================================
+|id|data|content_type|foreign_column
+|17|<BLOB>|image/png|7
+|=======================================================================
+
+For each row of media with a non-null foreign_column, there must be a row in features with a matching id in the  primary_column.
 
 === Table Definition SQL
 
-[[gpkg_ext_relations_sql]]
+[[gpkgext_relations_sql]]
 .Extended Relations Table Definition SQL (Normative)
 [cols=","]
 |=============
@@ -151,14 +150,14 @@ For a particular row of a user-defined media table, if the value of `data` is no
 |=============
 [source,sql]
 ----
-CREATE TABLE 'gpkg_ext_relations' (
+CREATE TABLE 'gpkgext_relations' (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   primary_table_name TEXT NOT NULL,
   primary_column TEXT NOT NULL,
   foreign_table_name TEXT NOT NULL,
-  fk_column TEXT NOT NULL,
-  relation_name TEXT NOT NULL,
-  CONSTRAINT fk_g2dgtct_name FOREIGN KEY('tile_matrix_set_name') REFERENCES gpkg_tile_matrix_set ( table_name ));
+  foreign_column TEXT NOT NULL,
+  relation_name TEXT NOT NULL
+ );
 ----
 
 [[gpkg_extensions_sql]]
@@ -171,8 +170,9 @@ CREATE TABLE 'gpkg_ext_relations' (
 ----
 CREATE TABLE sample_media (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  data BLOB,
-  content_type TEXT;
+  data BLOB NOT NULL,
+  content_type TEXT NOT NULL,
+  _foreign_column_ TEXT NULL;
 ----
 
 === Abstract Test Suite (Normative)
