@@ -168,11 +168,11 @@ CREATE TABLE 'gpkgext_relations' (
 |=============
 [source,sql]
 ----
-CREATE TABLE sample_media (
+CREATE TABLE 'sample_media' (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   data BLOB NOT NULL,
   content_type TEXT NOT NULL,
-  _foreign_column_ TEXT NULL;
+  _foreign_column_ TEXT NULL);
 ----
 
 === Abstract Test Suite (Normative)
