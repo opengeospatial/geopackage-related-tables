@@ -13,7 +13,7 @@ This extension provides a mechanism for associating tables with existing feature
 * Audio or Video files
 *	PDFs
 
-This extension is based on of the `compusult_extrelations1` extension developed by [Compusult](compusult.net) and is currently in use by them in customer projects.
+This extension is based on of the `compusult_extrelations1` extension developed by http://compusult.net[Compusult] and is currently in use by them in customer projects.
 
 The plan is for this extension to be tested during an upcoming OGC interoperability experiment.
 
