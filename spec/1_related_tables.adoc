@@ -1,33 +1,37 @@
 [[media_extension]]
-== Media Extension (Normative)
+== Related Tables Extension (Normative)
 
 === Extension Title
 
-Media
+Related Tables
 
 === Introduction
 
-This extension provides a mechanism for storing multimedia content with features or attributes in a GeoPackage. Examples where this could be used include the following:
+This extension provides a mechanism for associating tables with existing feature or attribute tables in a GeoPackage. One use case for this extension is to associate multimedia content with features. Examples where this could be used include the following:
 
 * Photographs
 * Audio or Video files
-  *	PDFs
+*	PDFs
+
+This extension is based on of the `compusult_extrelations1` extension developed by [Compusult](compusult.net) and is currently in use by them in customer projects.
+
+The plan is for this extension to be tested during an upcoming OGC interoperability experiment.
 
 === Extension Author
 
-GeoPackage SWG, author_name `gpkg_draft`.
+GeoPackage SWG (no author name until adopted by OGC)
 
 === Extension Name or Template
 
-`gpkg_draft_media`
+`related_tables` (will become `gpkg_related_tables` if adopted by OGC)
 
 === Extension Type
 
-New requirement dependent on http://www.geopackage.org/spec/#features[Clause 2.1] or http://www.geopackage.org/spec/#features[Clause 2.4].
+New requirement dependent on http://www.geopackage.org/spec/#features[Clause 2.1] or http://www.geopackage.org/spec/#attributes[Clause 2.4].
 
 === Applicability
 
-This extension applies to feature and attribute tables that are used to hold other media types.
+This extension applies to feature and attribute tables that are used to hold other types of related data.
 
 === Scope
 
@@ -188,5 +192,4 @@ However, parties to agreements based on this part of this document are encourage
 For undated references, the latest edition of the normative document referred to applies.
 
 [bibliography]
-- [[[1]]] http://www.geopackage.org/spec[OGC 12-128r10 OGC® GeoPackage Encoding Standard (On-line)]
-- [[[1a]]] https://portal.opengeospatial.org/files/?artifact_id=56357[OGC 12-128r10 OGC® GeoPackage Encoding Standard (PDF)]
+- [[[1]]] http://www.geopackage.org/spec[OGC 12-128r14 OGC® GeoPackage Encoding Standard (On-line)]
