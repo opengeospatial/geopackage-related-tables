@@ -78,5 +78,5 @@ include::0_introduction.adoc[]
 
 :numbered:
 
-include::1_media.adoc[]
+include::1_related_tables.adoc[]
 
