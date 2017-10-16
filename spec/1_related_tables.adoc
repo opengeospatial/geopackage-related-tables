@@ -11,11 +11,11 @@ This extension provides a mechanism for associating tables with existing feature
 
 * Photographs
 * Audio or Video files
-*	PDFs
+* PDFs
 
-This extension is based on of the `compusult_extrelations1` extension developed by http://compusult.net[Compusult] and is currently in use by them in customer projects.
+This extension is based on of the `compusult_extrelations1` extension developed by http://compusult.net[Compusult].
 
-The plan is for this extension to be tested during an upcoming OGC interoperability experiment.
+This extension is the subject of the OGC GeoPackage (GPKG) Related Tables Extension Interoperability Experiment (GPKG-RTE IE).
 
 === Extension Author
 
@@ -27,7 +27,7 @@ GeoPackage SWG (no author name until adopted by OGC)
 
 === Extension Type
 
-New requirement dependent on http://www.geopackage.org/spec/#features[Clause 2.1] or http://www.geopackage.org/spec/#attributes[Clause 2.4].
+New requirement dependent on http://www.geopackage.org/spec/#features[Clause 2.1] and http://www.geopackage.org/spec/#attributes[Clause 2.4].
 
 === Applicability
 
