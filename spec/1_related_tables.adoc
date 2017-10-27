@@ -23,7 +23,7 @@ GeoPackage SWG (no author name until adopted by OGC)
 
 === Extension Name or Template
 
-`related_tables` (will become `gpkg_related_tables` if adopted by OGC)
+`related_tables` (will become `gpkg_related_tables` if adopted by OGC, which will change Requirement 3)
 
 === Extension Type
 
@@ -95,7 +95,7 @@ A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_e
 [cols=",,,,",options="header",]
 |=======================================================================
 |table_name|column_name|extension_name|definition|scope
-|`gpkgext_relations`|null|`gpkg_draft_media`|TBD|`read-write`
+|`gpkgext_relations`|null|`related_tables`|TBD|`read-write`
 |=======================================================================
 
 ===== Extended Relations
