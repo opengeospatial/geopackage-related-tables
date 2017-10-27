@@ -103,7 +103,7 @@ A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_e
 [caption=""]
 .Requirement 4
 ====
-For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `primary_table_name` and that table SHALL have an entry in `gpkg_contents` with a `data_type` of 'features'.
+For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `primary_table_name` and that table SHALL have an entry in `gpkg_contents`.
 ====
 
 [[r5]]
