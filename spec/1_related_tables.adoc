@@ -23,7 +23,7 @@ GeoPackage SWG (no author name until adopted by OGC)
 
 === Extension Name or Template
 
-`related_tables` (will become `gpkg_related_tables` if adopted by OGC, which will change Requirement 3)
+`related_tables` (If this extension is adopted by OGC, then `gpkg_related_tables` will be named as an alias.)
 
 === Extension Type
 
