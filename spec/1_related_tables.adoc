@@ -11,11 +11,11 @@ This extension provides a mechanism for associating tables with existing feature
 
 * Photographs
 * Audio or Video files
-*	PDFs
+* PDFs
 
-This extension is based on of the `compusult_extrelations1` extension developed by http://compusult.net[Compusult] and is currently in use by them in customer projects.
+This extension is based on of the `compusult_extrelations1` extension developed by http://compusult.net[Compusult].
 
-The plan is for this extension to be tested during an upcoming OGC interoperability experiment.
+This extension is the subject of the OGC GeoPackage (GPKG) Related Tables Extension Interoperability Experiment (GPKG-RTE IE).
 
 === Extension Author
 
@@ -23,11 +23,11 @@ GeoPackage SWG (no author name until adopted by OGC)
 
 === Extension Name or Template
 
-`related_tables` (will become `gpkg_related_tables` if adopted by OGC)
+`related_tables` (If this extension is adopted by OGC, then `gpkg_related_tables` will be named as an alias.)
 
 === Extension Type
 
-New requirement dependent on http://www.geopackage.org/spec/#features[Clause 2.1] or http://www.geopackage.org/spec/#attributes[Clause 2.4].
+New requirement dependent on http://www.geopackage.org/spec/#features[Clause 2.1] and http://www.geopackage.org/spec/#attributes[Clause 2.4].
 
 === Applicability
 
@@ -95,7 +95,7 @@ A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_e
 [cols=",,,,",options="header",]
 |=======================================================================
 |table_name|column_name|extension_name|definition|scope
-|`gpkgext_relations`|null|`gpkg_draft_media`|TBD|`read-write`
+|`gpkgext_relations`|null|`related_tables`|TBD|`read-write`
 |=======================================================================
 
 ===== Extended Relations
@@ -103,7 +103,7 @@ A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_e
 [caption=""]
 .Requirement 4
 ====
-For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `primary_table_name` and that table SHALL have an entry in gpkg_contents with a data_type of `features`.
+For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `primary_table_name` and that table SHALL have an entry in `gpkg_contents`.
 ====
 
 [[r5]]
@@ -111,7 +111,7 @@ For each row in `gpkgext_relations` there SHALL be a table or view of the name r
 .Requirement 5
 ====
 
-For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in gpkg_contents with a data_type of `aspatial` and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
+For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes' and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
 
 ====
 
