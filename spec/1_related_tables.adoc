@@ -121,20 +121,22 @@ For each row in `gpkgext_relations` there SHALL be a table or view of the name r
 ====
 For any user-defined media table, as referenced in `gpkgext_relations`, if the value of its `foreign_column` (as specified in <<gpkgext_relations_table>>) is not null, the corresponding user-defined primary table (specified by `gpkgext_relations`) SHALL contain at least one a row with a value in its `primary_column` (specified by `gpkgext_relations`) equal to the value in the user-defined media table `foreign_column`.
 ====
+The values in `primary_column` and `foreign_column` SHOULD uniquely identify the relationship. There are a number of valid ways to do this including sequences and UUIDs.
 
 ====== Example
+In this example, there are three features (ID 1, 2, and 3) and three media values (ID 17, 18, and 19). Media ID 17 links to Features with ID 1 and 2 (relation 7). Feature ID 3 links to both media ID 18 and 19 (relation 8).
 
 .gpkgext_relations table values
 [options="header"]
 |==============================================
 |primary_table_name|primary_column|foreign_table_name|foreign_column|relation_name
-|features|relation_column|media|relation_column|media
+|features|relation|media|relation|media
 |==============================================
 
 .features table values
 [width="50%",options="header"]
 |=======================================================================
-|feature_id|primary_column
+|id|relation
 |1|7
 |2|7
 |3|8
@@ -143,7 +145,7 @@ For any user-defined media table, as referenced in `gpkgext_relations`, if the v
 .media table values
 [width="80%",options="header"]
 |=======================================================================
-|id|data|content_type|foreign_column
+|id|data|content_type|relation
 |17|<BLOB>|image/png|7
 |18|<BLOB>|image/png|8
 |19|<BLOB>|image/png|8
@@ -173,6 +175,24 @@ CREATE TABLE 'gpkgext_relations' (
  );
 ----
 
+[[gpkg_features_sql]]
+.Example User Defined Features Table Definition SQL (Informative)
+[cols=","]
+|=============
+|
+|=============
+[source,sql]
+----
+CREATE TABLE 'sample_feature_table' (
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  geometry GEOMETRY,
+  text_attribute TEXT,
+  real_attribute REAL,
+  boolean_attribute BOOLEAN,
+  relation TEXT NULL);
+----
+This table is a modified version of http://www.geopackage.org/spec/#_sample_feature_table_informative[the informative example in the core document].
+
 [[gpkg_extensions_sql]]
 .Example User Defined Media Table Definition SQL (Informative)
 [cols=","]
@@ -185,7 +205,7 @@ CREATE TABLE 'sample_media' (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   data BLOB NOT NULL,
   content_type TEXT NOT NULL,
-  _foreign_column_ TEXT NULL);
+  relation TEXT NULL);
 ----
 
 === Abstract Test Suite (Normative)
