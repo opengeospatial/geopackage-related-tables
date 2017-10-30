@@ -121,24 +121,27 @@ For each row in `gpkgext_relations` there SHALL be a table or view of the name r
 ====
 For any user-defined media table, as referenced in `gpkgext_relations`, if the value of its `foreign_column` (as specified in <<gpkgext_relations_table>>) is not null, the corresponding user-defined primary table (specified by `gpkgext_relations`) SHALL contain at least one a row with a value in its `primary_column` (specified by `gpkgext_relations`) equal to the value in the user-defined media table `foreign_column`.
 ====
-For example:
 
-* `gpkgext_relations` contains a row with:
-** `primary_table_name` of 'features'
-** `primary_column` of `relation_column`
-** `foreign_table_name` of 'media'
-** `foreign_column` of 'relation_column'
-** `relation_name` of 'media'
+====== Example
 
-.features
+.gpkgext_relations table values
+[options="header"]
+|==============================================
+|primary_table_name|primary_column|foreign_table_name|foreign_column|relation_name
+|features|relation_column|media|relation_column|media
+|==============================================
+
+.features table values
+[width="50%",options="header"]
 |=======================================================================
-|feature_id|primary_column|
-|1|7|
-|2|7|
-|3|8|
+|feature_id|primary_column
+|1|7
+|2|7
+|3|8
 |=======================================================================
 
-.media
+.media table values
+[width="80%",options="header"]
 |=======================================================================
 |id|data|content_type|foreign_column
 |17|<BLOB>|image/png|7
@@ -146,9 +149,9 @@ For example:
 |19|<BLOB>|image/png|8
 |=======================================================================
 
-For each row of media with a non-null foreign_column, there must be at least one row in features with a matching id in the  primary_column.
+For each row of media with a non-null `foreign_column`, there must be at least one row in `features` with a matching id in the `primary_column`.
 
-It is important to note that this allows for many-to-many, one-to-many and many-to-one relationships between features and related media.
+It is important to note that this allows for many-to-many, one-to-many, and many-to-one relationships between features and related media.
 
 === Table Definition SQL
 
