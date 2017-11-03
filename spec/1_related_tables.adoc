@@ -13,7 +13,7 @@ This extension provides a mechanism for associating tables with existing feature
 * Audio or Video files
 * PDFs
 
-This extension is based on of the `compusult_extrelations1` extension developed by http://compusult.net[Compusult].
+This extension is based on the `compusult_extrelations1` extension developed by http://compusult.net[Compusult].
 
 This extension is the subject of the OGC GeoPackage (GPKG) Related Tables Extension Interoperability Experiment (GPKG-RTE IE).
 
@@ -47,20 +47,39 @@ read-write
 .Requirement 1
 ====
 A GeoPackage that complies with this extension SHALL contain a `gpkgext_relations` table or view as per <<gpkgext_relations_table>> and <<gpkgext_relations_sql>>.
+If a mapping to support many to many relationships is required, the `mapping_table` column must be populated with the name of a table that has two columns called primary_column and foreign_column.
 ====
 
 [[gpkgext_relations_table]]
 .Extended Relations Table Definition
-[cols=",,,,,",options="header",]
+[cols=",,,,,,",options="header",]
 |=======================================================================
-|Column Name |Column Type |Column Description |Null |Default |Key
-|`id`|INTEGER|Autoincrement primary key|no||PK
-|`primary_table_name`|TEXT|Name of the table containing the features or attributes|no||
-|`primary_column`|TEXT|Name of the primary key column in `primary_table_name` |no||
-|`foreign_table_name`|TEXT|Name of the table containing the media|no||
-|`foreign_column`|TEXT|Name of the foreign key column in `foreign_table_name` used as the foreign key to join with `primary_table_name` on the `primary_column` |no||
-|`relation_name`|TEXT|Name of the relation ('media' for this extension)|no||
+|Column Name          |Column Type  |Column Description                                                                                                                       |Null |Default  |Key |Unique
+|`id`                 |INTEGER      |Autoincrement primary key                                                                                                                |no   |         |PK    |yes
+|`primary_table_name` |TEXT         |Name of the table containing the features or attributes                                                                                  |no   |         |      |no
+|`primary_column`     |TEXT         |Name of the primary key column in `primary_table_name`                                                                                   |no   |         |      |no
+|`foreign_table_name` |TEXT         |Name of the table containing the media                                                                                                   |no   |         |      |no
+|`foreign_column`     |TEXT         |Name of the foreign key column in `foreign_table_name` used as the foreign key to join with `primary_table_name` on the `primary_column` |no   |         |      |no
+|`relation_name`      |TEXT         |Name of the relation ('media' for this extension)                                                                                        |no   |         |      |no
+|`mapping_table`      |TEXT         |Name of a mapping table used to support many-to-many etc. type mappings                                                                  |yes  |         |      |yes
 |=======================================================================
+===== Mapping Tables
+[[r1.1]]
+[caption=""]
+.Requirement 1.1
+====
+A GeoPackage that complies to this extension SHALL contain a mapping table for each non-null value in the `mapping_table` column of the _gpkgext_relations_table_. Any such mapping table must take its name from that value. Any such mapping table SHALL define values for mapping row(s) of a feature/attribute/tile table to row(s) of the media table. Two columns SHALL be used to map between the core data table(`primary_column`) and the media table (`foreign_column`). The two columns SHALL be named `primary_column_value` and `foreign_column_value` and SHALL have the respective data types and sizes of the indicated columns from their respective tables.
+
+====
+[[gpkgext_user_defined_mapping_table]]
+.Extended Relations Mapping Table Definition
+[cols=",,,,,,",options="header",]
+
+|=================================================================
+|Column Name | Column Type | Column Description  |Null |Default  |Key |Unique
+|`primary_column_value`     |determined by the data type of the `primary_column` matched to this mapping table name in _gpkgext_relations_table_  |Name of the primary key column in `primary_table_name` |no   |         |      |no
+|`foreign_column_value`     |determined by the data type of the `foreign_column` matched to this mapping table name in _gpkgext_relations_table_  |Name of the foreign key column in `foreign_table_name` used as the foreign key to join with `primary_table_name` on the `primary_column` |no   |         |      |no
+|=================================================================
 
 ===== User Defined Media
 [[r2]]
@@ -119,6 +138,14 @@ For each row in `gpkgext_relations` there SHALL be a table or view of the name r
 [caption=""]
 .Requirement 6
 ====
+For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes' and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
+
+====
+
+[[r7]]
+[caption=""]
+.Requirement 7
+====
 For any user-defined media table, as referenced in `gpkgext_relations`, if the value of its `foreign_column` (as specified in <<gpkgext_relations_table>>) is not null, the corresponding user-defined primary table (specified by `gpkgext_relations`) SHALL contain at least one row with a value in its `primary_column` (specified by `gpkgext_relations`) equal to the value in the user-defined media table `foreign_column`.
 ====
 The values in `primary_column` and `foreign_column` SHOULD uniquely identify the relationship. There are a number of valid ways to do this including sequences and UUIDs.
@@ -174,7 +201,6 @@ CREATE TABLE 'gpkgext_relations' (
   relation_name TEXT NOT NULL
  );
 ----
-
 [[gpkg_features_sql]]
 .Example User Defined Features Table Definition SQL (Informative)
 [cols=","]
