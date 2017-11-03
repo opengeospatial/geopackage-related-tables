@@ -119,7 +119,7 @@ For each row in `gpkgext_relations` there SHALL be a table or view of the name r
 [caption=""]
 .Requirement 6
 ====
-For any user-defined media table, as referenced in `gpkgext_relations`, if the value of its `foreign_column` (as specified in <<gpkgext_relations_table>>) is not null, the corresponding user-defined primary table (specified by `gpkgext_relations`) SHALL contain at least one a row with a value in its `primary_column` (specified by `gpkgext_relations`) equal to the value in the user-defined media table `foreign_column`.
+For any user-defined media table, as referenced in `gpkgext_relations`, if the value of its `foreign_column` (as specified in <<gpkgext_relations_table>>) is not null, the corresponding user-defined primary table (specified by `gpkgext_relations`) SHALL contain at least one row with a value in its `primary_column` (specified by `gpkgext_relations`) equal to the value in the user-defined media table `foreign_column`.
 ====
 The values in `primary_column` and `foreign_column` SHOULD uniquely identify the relationship. There are a number of valid ways to do this including sequences and UUIDs.
 
@@ -151,7 +151,7 @@ In this example, there are three features (ID 1, 2, and 3) and three media value
 |19|<BLOB>|image/png|8
 |=======================================================================
 
-For each row of media with a non-null `foreign_column`, there must be at least one row in `features` with a matching id in the `primary_column`.
+For each row of media with a non-null `relation`, there must be at least one row in `features` with a matching id in the `relation`.
 
 It is important to note that this allows for many-to-many, one-to-many, and many-to-one relationships between features and related media.
 
