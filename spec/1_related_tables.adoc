@@ -7,7 +7,7 @@ Related Tables
 
 === Introduction
 
-This extension provides a mechanism for associating tables with existing feature or attribute tables in a GeoPackage. One use case for this extension is to associate multimedia content with features. Examples where this could be used include the following:
+This extension provides a mechanism for associating tables with existing feature or attribute tables in a GeoPackage. One use case for this extension is to associate features with multimedia content such as:
 
 * Photographs
 * Audio or Video files
@@ -47,7 +47,10 @@ read-write
 .Requirement 1
 ====
 A GeoPackage that complies with this extension SHALL contain a `gpkgext_relations` table or view as per <<gpkgext_relations_table>> and <<gpkgext_relations_sql>>.
-If a mapping to support many to many relationships is required, the `mapping_table` column must be populated with the name of a table that has two columns called primary_column and foreign_column.
+
+If a mapping to support many to many relationships is required, the `mapping_table` column SHALL contain the name of a table that has two columns called `primary_column_value` and `foreign_column_value` which will contain data values for, and link to, the `primary_column` and `foreign_column` named in the `gpkgext_relations` table. <<r2>> describes this table. For many-to-many cases, this would be the primary key or `id` column.
+
+The relation defined in the `gpkgext_relations` table may or may not use the id or primary key columns to link the primary and foreign tables.
 ====
 
 [[gpkgext_relations_table]]
@@ -63,12 +66,13 @@ If a mapping to support many to many relationships is required, the `mapping_tab
 |`relation_name`      |TEXT         |Name of the relation ('media' for this extension)                                                                                        |no   |         |      |no
 |`mapping_table`      |TEXT         |Name of a mapping table used to support many-to-many etc. type mappings                                                                  |yes  |         |      |yes
 |=======================================================================
+
 ===== Mapping Tables
-[[r1.1]]
+[[r2]]
 [caption=""]
-.Requirement 1.1
+.Requirement 2
 ====
-A GeoPackage that complies to this extension SHALL contain a mapping table for each non-null value in the `mapping_table` column of the _gpkgext_relations_table_. Any such mapping table must take its name from that value. Any such mapping table SHALL define values for mapping row(s) of a feature/attribute/tile table to row(s) of the media table. Two columns SHALL be used to map between the core data table(`primary_column`) and the media table (`foreign_column`). The two columns SHALL be named `primary_column_value` and `foreign_column_value` and SHALL have the respective data types and sizes of the indicated columns from their respective tables.
+A GeoPackage that complies to this extension SHALL contain a mapping table for each non-null value in the `mapping_table` column of the `gpkgext_relations_table`. Any such mapping table must take its name from that value. Any such mapping table SHALL define values for mapping row(s) of a feature/attribute/tile table to row(s) of the media table. Two columns SHALL be used to map between the core data table(`primary_column`) and the media table (`foreign_column`). The two columns SHALL be named `primary_column_value` and `foreign_column_value` and SHALL have the respective data types and sizes of the corresponding columns from their respective data tables.
 
 ====
 [[gpkgext_user_defined_mapping_table]]
@@ -81,10 +85,11 @@ A GeoPackage that complies to this extension SHALL contain a mapping table for e
 |`foreign_column_value`     |determined by the data type of the `foreign_column` matched to this mapping table name in _gpkgext_relations_table_  |Name of the foreign key column in `foreign_table_name` used as the foreign key to join with `primary_table_name` on the `primary_column` |no   |         |      |no
 |=================================================================
 
+
 ===== User Defined Media
-[[r2]]
+[[r3]]
 [caption=""]
-.Requirement 2
+.Requirement 3
 ====
 A GeoPackage that complies with this extension SHALL contain one or more user-defined media tables or views as per <<gpkg_user_defined_media_table>>. These tables MAY contain other columns.
 ====
@@ -102,9 +107,9 @@ A GeoPackage that complies with this extension SHALL contain one or more user-de
 
 ==== Table Values
 ===== `gpkg_extensions`
-[[r3]]
+[[r4]]
 [caption=""]
-.Requirement 3
+.Requirement 4
 ====
 A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_extensions` table as described in <<gpkg_extensions_records>>. There SHALL be a row for `gpkgext_relations`.
 ====
@@ -118,26 +123,18 @@ A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_e
 |=======================================================================
 
 ===== Extended Relations
-[[r4]]
-[caption=""]
-.Requirement 4
-====
-For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `primary_table_name` and that table SHALL have an entry in `gpkg_contents`.
-====
-
 [[r5]]
 [caption=""]
 .Requirement 5
 ====
-
-For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes' and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
-
+For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `primary_table_name` and that table SHALL have an entry in `gpkg_contents`.
 ====
 
 [[r6]]
 [caption=""]
 .Requirement 6
 ====
+
 For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes' and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
 
 ====
@@ -145,6 +142,14 @@ For each row in `gpkgext_relations` there SHALL be a table or view of the name r
 [[r7]]
 [caption=""]
 .Requirement 7
+====
+For each row in `gpkgext_relations` there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes' and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
+
+====
+
+[[r8]]
+[caption=""]
+.Requirement 8
 ====
 For any user-defined media table, as referenced in `gpkgext_relations`, if the value of its `foreign_column` (as specified in <<gpkgext_relations_table>>) is not null, the corresponding user-defined primary table (specified by `gpkgext_relations`) SHALL contain at least one row with a value in its `primary_column` (specified by `gpkgext_relations`) equal to the value in the user-defined media table `foreign_column`.
 ====
@@ -156,8 +161,8 @@ In this example, there are three features (ID 1, 2, and 3) and three media value
 .gpkgext_relations table values
 [options="header"]
 |==============================================
-|primary_table_name|primary_column|foreign_table_name|foreign_column|relation_name
-|features|relation|media|relation|media
+|primary_table_name|primary_column|foreign_table_name|foreign_column|relation_name|mapping_table
+|features|relation|media|relation|media|null
 |==============================================
 
 .features table values
@@ -167,6 +172,7 @@ In this example, there are three features (ID 1, 2, and 3) and three media value
 |1|7
 |2|7
 |3|8
+|4|8
 |=======================================================================
 
 .media table values
@@ -180,7 +186,31 @@ In this example, there are three features (ID 1, 2, and 3) and three media value
 
 For each row of media with a non-null `relation`, there must be at least one row in `features` with a matching id in the `relation`.
 
-It is important to note that this allows for many-to-many, one-to-many, and many-to-one relationships between features and related media.
+This allows for one-to-many, and many-to-one relationships between features and related media.
+
+To support many-to-many relationships, the content of the `gpkgext_relations` would change to name a mapping table used to map between the core data table and its related table.
+
+.gpkgext_relations table values
+[options="header"]
+|==============================================
+|primary_table_name|primary_column|foreign_table_name|foreign_column|relation_name|mapping_table
+|features|id|media|id|media|features_to_media
+|==============================================
+
+The example mapping table called `features_to_media` relates on ids. In the example below, the relations map the id columns from the features table and the media table.
+
+.example features_to_media table values
+[options="header"]
+|==============================================
+|primary_column_value|foreign_column_value
+|4  | 17
+|4  | 19
+|3  | 18
+|2  | 18
+|1  | 18
+|1  | 17
+|==============================================
+
 
 === Table Definition SQL
 
@@ -201,6 +231,21 @@ CREATE TABLE 'gpkgext_relations' (
   relation_name TEXT NOT NULL
  );
 ----
+
+[[gpkgext_user_defined_mapping_table_sql]]
+.Extended Relations Mapping Table SQL (Normative)
+[cols=","]
+|=============
+|
+|=============
+[source,sql]
+----
+CREATE TABLE 'sample_mapping_table' (
+  primary_column_value TEXT NOT NULL,
+  foreign_column_value TEXT NOT NULL
+ );
+----
+
 [[gpkg_features_sql]]
 .Example User Defined Features Table Definition SQL (Informative)
 [cols=","]
