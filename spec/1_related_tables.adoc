@@ -134,28 +134,35 @@ For each row in `gpkgext_relations`, there SHALL be a table or view of the name 
 [caption=""]
 .Requirement 6
 ====
-
 For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes' and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
-
 ====
 
 [[r7]]
 [caption=""]
 .Requirement 7
 ====
-For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes' and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
-
+For each row of media with a non-null `relation`, there SHALL be at least one row in `features` with a matching id in the `relation`.
 ====
 
 [[r8]]
 [caption=""]
 .Requirement 8
 ====
+For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes' and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
+====
+
+[[r9]]
+[caption=""]
+.Requirement 9
+====
 For any user-defined media table, as referenced in `gpkgext_relations`, if the value of its `foreign_column` (as specified in <<gpkgext_relations_table>>) is not null, the corresponding user-defined primary table (specified by `gpkgext_relations`) SHALL contain at least one row with a value in its `primary_column` (specified by `gpkgext_relations`) equal to the value in the user-defined media table `foreign_column`.
 ====
 The values in `primary_column` and `foreign_column` SHOULD uniquely identify the relationship. There are a number of valid ways to do this, including sequences and UUIDs.
 
-====== Example
+====== Example 1 (1:M, M:1)
+
+In this example, the relation column is used to support many-to-one or one-to-many relationships between features and media.
+
 In this example, there are three features (ID 1, 2, and 3) and three media values (ID 17, 18, and 19). Media ID 17 links to Features with ID 1 and 2 (relation 7). Feature ID 3 links to both media ID 18 and 19 (relation 8).
 
 .gpkgext_relations table values
@@ -184,11 +191,19 @@ In this example, there are three features (ID 1, 2, and 3) and three media value
 |19|<BLOB>|image/png|8
 |=======================================================================
 
-For each row of media with a non-null `relation`, there must be at least one row in `features` with a matching id in the `relation`.
-
 This allows for one-to-many and many-to-one relationships between features and related media.
 
-To support many-to-many relationships, the content of the `gpkgext_relations` would change to name a mapping table used to map between the core data table and its related table.
+====== Example 2 (M:N)
+
+To support many-to-many relationships, the content of the `gpkgext_relations` would change to name a mapping table used to map between the core data table and its related table using their respective `id` columns.
+
+In this example, there are four features (ID 1, 2, 3 and 4) and three media values (ID 17, 18, and 19).
+Using the mapping table `features_to_media`,
+
+ * feature 1 relates to media 17 and 18
+ * feature 2 relates to media 18
+ * feature 3 relates to media 18
+ * feature 4 relates to media 17 and 19
 
 .gpkgext_relations table values
 [options="header"]
@@ -196,6 +211,26 @@ To support many-to-many relationships, the content of the `gpkgext_relations` wo
 |primary_table_name|primary_column|foreign_table_name|foreign_column|relation_name|mapping_table
 |features|id|media|id|media|features_to_media
 |==============================================
+
+.features table values
+[width="50%",options="header"]
+|=======================================================================
+|id|geom
+|1|<BLOB>
+|2|<BLOB>
+|3|<BLOB>
+|4|<BLOB>
+|=======================================================================
+
+.media table values
+[width="80%",options="header"]
+|=======================================================================
+|id|data|content_type
+|17|<BLOB>|image/png
+|18|<BLOB>|image/png
+|19|<BLOB>|image/png
+|=======================================================================
+
 
 The example mapping table called `features_to_media` relates on ids. In the example below, the relations map the id columns from the features table and the media table.
 
@@ -287,7 +322,7 @@ TBD
 ==== Normative References
 
 The following normative documents contain provisions which, through reference in this text, constitute provisions of this document.
-For dated references, subsequent amendments to, or revisions of any, of these publications do not apply.
+For dated references, subsequent amendments to, or revisions of, any of these publications do not apply.
 However, parties to agreements based on this part of this document are encouraged to investigate the possibility of applying the most recent editions of the normative documents indicated below.
 For undated references, the latest edition of the normative document referenced applies.
 
