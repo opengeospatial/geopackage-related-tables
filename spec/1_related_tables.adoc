@@ -134,21 +134,14 @@ For each row in `gpkgext_relations`, there SHALL be a table or view of the name 
 [caption=""]
 .Requirement 6
 ====
-For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes' and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
+For each row in `gpkgext_relations`, there SHALL be a table or view of the name set in `foreign_table_name`. This foreign table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes'. The foreign table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
 ====
 
 [[r7]]
 [caption=""]
 .Requirement 7
 ====
-For each row of media with a non-null `relation`, there SHALL be at least one row in `features` with a matching id in the `relation`.
-====
-
-[[r8]]
-[caption=""]
-.Requirement 8
-====
-For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `foreign_table_name` and that table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes' and that table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
+For each row in the table referenced in `foreign_table_name` with a non-null `foreign_column` value, there SHALL be at least one row in the table referenced in `primary_table_name` with the same value in its `primary_column`.
 ====
 
 [[r9]]
@@ -271,7 +264,7 @@ CREATE TABLE 'gpkgext_relations' (
 ----
 
 [[gpkgext_user_defined_mapping_table_sql]]
-.Extended Relations Mapping Table SQL (Normative)
+.Extended Relations Mapping Table SQL (Informative)
 [cols=","]
 |=============
 |
