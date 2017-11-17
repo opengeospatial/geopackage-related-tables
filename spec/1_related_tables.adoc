@@ -50,7 +50,7 @@ A GeoPackage that complies with this extension SHALL contain a `gpkgext_relation
 
 To support many-to-many relationships, the `mapping_table` column value SHALL contain the name of a table that has two columns named `primary_column_id` and `attribute_column_id` which will link the tables described in the corresponding `primary_table_name` and `attribute_table_name` column values. <<r2>> describes this table. 
 
-The relation defined in the `gpkgext_relations` table shall use id values (primary key columns) to link the primary and attribute tables.
+The relation defined in the `gpkgext_relations` table SHALL use id values (primary key columns) to link the primary and attribute tables.
 ====
 
 [[gpkgext_relations_table]]
@@ -62,7 +62,7 @@ The relation defined in the `gpkgext_relations` table shall use id values (prima
 |`primary_table_name`   |TEXT         |Name of the table containing the features or attributes               |no   |         |    |no
 |`primary_column`       |TEXT         |Name of the primary key column in `primary_table_name`                |no   |         |    |no
 |`attribute_table_name` |TEXT         |Name of the table containing the attributes                           |no   |         |    |no
-|`attribute_column`     |TEXT         |Name of the primary key column in `foreign_table_name`                |no   |         |    |no
+|`attribute_column`     |TEXT         |Name of the primary key column in `attribute_table_name`                |no   |         |    |no
 |`relation_name`        |TEXT         |Name of the relation ('media' for this extension)                     |no   |         |    |no
 |`mapping_table`        |TEXT         |Name of a mapping table used to support many-to-many type mappings    |no   |         |    |yes
 |=======================================================================
@@ -72,7 +72,7 @@ The relation defined in the `gpkgext_relations` table shall use id values (prima
 [caption=""]
 .Requirement 2
 ====
-A GeoPackage that complies to this extension SHALL contain a mapping table for each row in the `gpkgext_relations_table`. The name of the table SHALL correspond to the value in the `mapping_table` column. The mapping table MAY contain no rows. Each row that is present SHALL map a row of a feature/attribute/tile table to a row of the attribute table. Two columns SHALL be used to map between the core data table using the `primary_column_id` and the attribute table using the `attribute_column_id`.
+A GeoPackage that complies to this extension SHALL contain a mapping table for each row in the `gpkgext_relations_table`. The name of the table SHALL correspond to the value in the `mapping_table` column. The mapping table MAY contain no rows. Each row that is present SHALL map a row of a feature/attribute/tile table to a row of the attribute table. The two columns SHALL be used to map between the core data table using the `primary_column_id` and the attribute table using the `attribute_column_id`.
 ====
 [[gpkgext_user_defined_mapping_table]]
 .Extended Relations Mapping Table Definition
@@ -90,7 +90,7 @@ A GeoPackage that complies to this extension SHALL contain a mapping table for e
 [caption=""]
 .Requirement 3
 ====
-A GeoPackage that complies with this extension SHALL contain one or more user-defined attribute / media tables or views as per <<gpkg_user_defined_media_table>>. These tables MAY contain other columns.
+A GeoPackage that complies with this extension SHALL contain one or more user-defined attribute (media) tables or views as per <<gpkg_user_defined_media_table>>. These tables MAY contain other columns.
 ====
 
 [[gpkg_user_defined_media_table]]
@@ -135,12 +135,12 @@ For each row in `gpkgext_relations`, there SHALL be a table or view of the name 
 For each row in `gpkgext_relations`, there SHALL be a table or view of the name specified in `attribute_table_name`. This attributes table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes'. The attribute table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
 ====
 
-====== Example (M:N)
+====== Example
 
-This example illustrates support for many-to-many relationships.
+This example illustrates support for many-to-many relationships but the concept may be used in a degenerative way to support one-to-many or many-to-one relationships.
 The content of the `gpkgext_relations` includes a <<features_to_media>> that relates the <<features>> and <<media>> using their respective `id` columns.
 
-In this example, there are four features (ID 1, 2, 3 and 4) and three PNG media (ID 17, 18, and 19).
+In this example, there are four features (ID 1, 2, 3 and 4) and three PNG media items (ID 17, 18, and 19).
 Using the <<features_to_media>>,
 
  * feature 1 relates to media 17 and 18
