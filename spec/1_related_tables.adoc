@@ -67,7 +67,7 @@ The relation defined in the `gpkgext_relations` table SHALL use id values (prima
 |`mapping_table`        |TEXT         |Name of a mapping table used to support many-to-many type mappings    |no   |         |    |yes
 |=======================================================================
 
-===== Mapping Tables
+===== User Defined Mapping Tables
 [[r2]]
 [caption=""]
 .Requirement 2
@@ -75,7 +75,7 @@ The relation defined in the `gpkgext_relations` table SHALL use id values (prima
 A GeoPackage that complies to this extension SHALL contain a mapping table for each row in the `gpkgext_relations_table`. The name of the table SHALL correspond to the value in the `mapping_table` column. The mapping table MAY contain no rows. Each row that is present SHALL map a row of a feature/attribute/tile table to a row of the attribute table. The two columns SHALL be used to map between the core data table using the `primary_column_id` and the attribute table using the `attribute_column_id`.
 ====
 [[gpkgext_user_defined_mapping_table]]
-.Extended Relations Mapping Table Definition
+.User Defined Mapping Table Definition
 [cols=",,,,,,",options="header",]
 
 |=================================================================
@@ -84,8 +84,7 @@ A GeoPackage that complies to this extension SHALL contain a mapping table for e
 |`attribute_column_id` | INTEGER     | Name of the primary key column in the attribute table  |no   |         |    |no
 |=================================================================
 
-
-===== User Defined Attributes (Media)
+===== User Defined Attributes (Media) Tables
 [[r3]]
 [caption=""]
 .Requirement 3
@@ -109,7 +108,7 @@ A GeoPackage that complies with this extension SHALL contain one or more user-de
 [caption=""]
 .Requirement 4
 ====
-A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_extensions` table as described in <<gpkg_extensions_records>>. There SHALL be a row for `gpkgext_relations`.
+A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_extensions` table as described in <<gpkg_extensions_records>>. There SHALL be a row for `gpkgext_relations` and one row for each <<gpkgext_user_defined_mapping_table,extended relations mapping table>>.
 ====
 
 [[gpkg_extensions_records]]
@@ -118,6 +117,7 @@ A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_e
 |=======================================================================
 |table_name|column_name|extension_name|definition|scope
 |`gpkgext_relations`|null|`related_tables`|TBD|`read-write`
+|_name of actual <<gpkgext_user_defined_mapping_table,extended relations mapping table>>_|null|`related_tables`|TBD|`read-write`
 |=======================================================================
 
 ===== Extended Relations
