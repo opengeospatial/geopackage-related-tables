@@ -72,7 +72,7 @@ The relation defined in the `gpkgext_relations` table SHALL use id values (prima
 [caption=""]
 .Requirement 2
 ====
-A GeoPackage that complies to this extension SHALL contain a mapping table for each row in the `gpkgext_relations_table`. The name of the table SHALL correspond to the value in the `mapping_table` column. The mapping table MAY contain no rows. Each row that is present SHALL map a row of a feature/attribute/tile table to a row of the attribute table. The two columns SHALL be used to map between the core data table using the `primary_column_id` and the attribute table using the `attribute_column_id`.
+A GeoPackage that complies to this extension SHALL contain a mapping table for each distinct value in the 'mapping_table' column of the `gpkgext_relations_table` as per <<gpkgext_user_defined_mapping_table>>. The mapping table MAY contain no rows. Each row that is present SHALL map a row of a feature/attribute/tile table to a row of the attribute table. The two columns SHALL be used to map between the core data table using the `primary_column_id` and the attribute table using the `attribute_column_id`.
 ====
 [[gpkgext_user_defined_mapping_table]]
 .User Defined Mapping Table Definition
