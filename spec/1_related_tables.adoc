@@ -7,19 +7,19 @@ Related Tables
 
 === Introduction
 
-This extension provides a mechanism for associating tables with existing feature or attribute tables in a GeoPackage. One use case for this extension is to associate features with multimedia content such as:
+The GeoPackage Related Tables extension defines the rules and requirements for associating tables with existing feature or attribute tables in a GeoPackage data store<<1>>. One use case for this extension is to associate features with related multimedia content such as:
 
 * photographs;
 * audio or video files; or,
 * PDFs.
 
-This extension is based on the `compusult_extrelations1` extension developed by http://compusult.net[Compusult].
+For example, implementing this extension would provide the ability to associated pictures of a house with a specific parcel.
 
-This extension is the subject of the OGC GeoPackage (GPKG) Related Tables Extension Interoperability Experiment (GPKG-RTE IE).
+The http://www.opengeospatial.org/projects/initiatives/gpkg-rteie[OGC GeoPackage (GPKG) Related Tables Extension Interoperability Experiment (GPKG-RTE IE)] verified that the extension is correctly designed to be transparent in this manner. The goal of the IE was achieved by building GeoPackages containing embedded multimedia content and sharing those GeoPackages with other software products. This IE produced an OGC Engineering Report <<2>> that discusses whether the extension is fit for use and adoption by the OGC. This extension is intended to be transparent and to not interfere with GPKG compliant, but non-supporting, software packages.
 
 === Extension Author
 
-GeoPackage SWG (no author name until adopted by OGC)
+GeoPackage SWG (no author name until adopted by OGC)footnote:[This extension is based on the `compusult_extrelations1` extension developed by http://compusult.net[Compusult].]
 
 === Extension Name or Template
 
@@ -27,7 +27,7 @@ GeoPackage SWG (no author name until adopted by OGC)
 
 === Extension Type
 
-New requirement dependent on http://www.geopackage.org/spec/#features[Clause 2.1] and http://www.geopackage.org/spec/#attributes[Clause 2.4].
+This extension provides new requirements dependent on GeoPackage http://www.geopackage.org/spec120/index.html#features[Clause 2.1] and http://www.geopackage.org/spec120/index.html#attributes[Clause 2.4].
 
 === Applicability
 
@@ -47,9 +47,19 @@ read-write
 .Requirement 1
 ====
 A GeoPackage that complies with this extension SHALL contain a `gpkgext_relations` table or view as per <<gpkgext_relations_table>> and <<gpkgext_relations_sql>>.
+====
 
+[[r2]]
+[caption=""]
+.Requirement 2
+====
 If a mapping to support many-to-many relationships is required, the `mapping_table` column SHALL contain the name of a table that has two columns named `primary_column_value` and `foreign_column_value` which will contain data values for, and link to, the `primary_column` and `foreign_column` named in the `gpkgext_relations` table. <<r2>> describes this table. For many-to-many cases, this would be the primary key or `id` column.
+====
 
+[[r3]]
+[caption=""]
+.Requirement 3
+====
 The relation defined in the `gpkgext_relations` table may or may not use the id or primary key columns to link the primary and foreign tables.
 ====
 
@@ -67,13 +77,24 @@ The relation defined in the `gpkgext_relations` table may or may not use the id 
 |`mapping_table`      |TEXT         |Name of a mapping table used to support many-to-many etc. type mappings                                                                  |yes  |         |      |yes
 |=======================================================================
 
-===== Mapping Tables
-[[r2]]
+===== User Defined Mapping Tables
+[[r4]]
 [caption=""]
-.Requirement 2
+.Requirement 4
 ====
-A GeoPackage that complies to this extension SHALL contain a mapping table for each non-null value in the `mapping_table` column of the `gpkgext_relations_table` and SHALL take its name from that value. Any such mapping table SHALL define values for mapping row(s) of a feature/attribute/tile table to row(s) of the media table. Two columns SHALL be used to map between the core data table using the `primary_column` and the media table using the `foreign_column`. The two columns SHALL be named `primary_column_value` and `foreign_column_value` and SHALL have the respective data types and sizes of the corresponding columns from their respective data tables.
+A GeoPackage that complies with this extension SHALL contain a mapping table for each distinct value in the `mapping_table` column of the `gpkgext_relations_table` as per  <<gpkgext_user_defined_mapping_table>>.
 
+[[r5]]
+[caption=""]
+.Requirement 5
+====
+A mapping table MAY contain no rows. Each row that is present SHALL map a row of a feature/attribute/tile table to a row of the attribute table. The two columns SHALL be used to map between the core data table using the `primary_column_id` and the attribute table using the `attribute_column_id`.
+
+[[r6]]
+[caption=""]
+.Requirement 6
+====
+The two columns of a mapping table SHALL be used to map between the core data table using the `primary_column_id` and the attribute table using the `attribute_column_id`.
 ====
 [[gpkgext_user_defined_mapping_table]]
 .Extended Relations Mapping Table Definition
@@ -111,7 +132,7 @@ A GeoPackage that complies with this extension SHALL contain one or more user-de
 [caption=""]
 .Requirement 4
 ====
-A GeoPackage that complies with this extension SHALL contain rows in the `gpkg_extensions` table as described in <<gpkg_extensions_records>>. There SHALL be a row for `gpkgext_relations`.
+A GeoPackage that complies with the Related Tables extension SHALL contain rows in the `gpkg_extensions` table as described in <<gpkg_extensions_records>>. There SHALL be a row for `gpkgext_relations`.
 ====
 
 [[gpkg_extensions_records]]
@@ -324,4 +345,5 @@ However, parties to agreements based on this part of this document are encourage
 For undated references, the latest edition of the normative document referenced applies.
 
 [bibliography]
-- [[[1]]] http://www.geopackage.org/spec[OGC 12-128r14 OGC® GeoPackage Encoding Standard (On-line)]
+- [[[1]]] http://www.geopackage.org/spec120/index.html[OGC 12-128r14 OGC® GeoPackage Encoding Standard v1.2.0 (On-line)]
+- [[[2]]] TBD
