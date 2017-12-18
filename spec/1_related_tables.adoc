@@ -72,9 +72,10 @@ The relation defined in the `gpkgext_relations` table may or may not use the id 
 |`primary_table_name`   |TEXT         |Name of the table containing the features or attributes               |no   |         |    |no
 |`primary_column`       |TEXT         |Name of the primary key column in `primary_table_name`                |no   |         |    |no
 |`attribute_table_name` |TEXT         |Name of the table containing the attributes                           |no   |         |    |no
-|`attribute_column`     |TEXT         |Name of the primary key column in `attribute_table_name`                |no   |         |    |no
+|`attribute_column`     |TEXT         |Name of the primary key column in `attribute_table_name`              |no   |         |    |no
 |`relation_name`        |TEXT         |Name of the relation ('media' for this extension)                     |no   |         |    |no
 |`mapping_table`        |TEXT         |Name of a mapping table used to support many-to-many type mappings    |no   |         |    |yes
+|`cardinality`          |TEXT         |One of `one-to-many`, `many-to-one`, or `many-to-many`                |no   |         |    |yes
 |=======================================================================
 
 ===== User Defined Mapping Tables
@@ -157,6 +158,11 @@ For each row in `gpkgext_relations`, there SHALL be a table or view of the name 
 For each row in `gpkgext_relations`, there SHALL be a table or view of the name specified in `attribute_table_name`. This attributes table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes'. The attribute table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>.
 ====
 
+[NOTE]
+====
+The `cardinality` column is informational only. It should be populated during the data load process and updated by the GeoPackage client if needed. Export processes may use this column to determine the right way to export the data.
+====
+
 ====== Example
 
 This example illustrates support for many-to-many relationships but the concept may be used in a degenerative way to support one-to-many or many-to-one relationships.
@@ -173,8 +179,8 @@ Using the <<features_to_media>>,
 .gpkgext_relations table values
 [options="header"]
 |==============================================
-|primary_table_name|primary_column|attribute_table_name|attribute_column|relation_name|mapping_table
-|features          |id            |media               |id              |media        |features_to_media
+|primary_table_name|primary_column|attribute_table_name|attribute_column|relation_name|mapping_table|cardinality
+|features          |id            |media               |id              |media        |features_to_media|many-to-many
 |==============================================
 
 [[features]]
@@ -231,7 +237,8 @@ CREATE TABLE 'gpkgext_relations' (
   foreign_table_name TEXT NOT NULL,
   foreign_column TEXT NOT NULL,
   relation_name TEXT NOT NULL,
-  mapping_table TEXT UNIQUE
+  mapping_table TEXT UNIQUE,
+  cardinality TEXT NOT NULL
  );
 ----
 
