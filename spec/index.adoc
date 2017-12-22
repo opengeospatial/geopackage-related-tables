@@ -12,20 +12,20 @@
 [id="ogcname"]
 Open Geospatial Consortium +
 [id="ogcheading"]
-Publication Date: 2015-04-20 +
-Approval Date:   2015-04-20 +
-Submission Date: 2015-04-20 +
-External identifier of this OGC® document: http://www.opengis.net/doc/IS/geopackage/1.0.1 +
-URL for this OGC® document: http://docs.opengeospatial.org/is/12-128r11/12-128r11.html +
-Internal reference number of this OGC® document: OGC 12-128r11 +
-Version: 1.0.1 +
+Publication Date: TBA +
+Approval Date:   TBA +
+Submission Date: TBA +
+External identifier of this OGC® document: TBA +
+URL for this OGC® document: TBA +
+Internal reference number of this OGC® document: TBA +
+Version: DRAFT-TBD +
 Category: OGC® Encoding Standard +
-Editor:   Paul Daisey
+Editor:   Jeff Yutzler
 
 [title]
-= OGC® GeoPackage Media Extension =
+= OGC® GeoPackage Related Tables Extension =
 
-Copyright © 2015 Open Geospatial Consortium. +
+Copyright © 2018 Open Geospatial Consortium. +
 To obtain additional rights of use, visit http://www.opengeospatial.org/legal/ +
 
 *Warning*
@@ -63,7 +63,7 @@ _Recipients of this document are requested to submit, with their comments, notif
 
 == Abstract ==
 
-This draft OGC® Encoding Standard defines a GeoPackage Extensions for media associated with features or attributes.
+This draft OGC® Encoding Standard defines a GeoPackage Extension to relate additional content (such as, but not limited to, media such as photographs and documetns) to features or attributes.
 
 == Keywords ==
 
