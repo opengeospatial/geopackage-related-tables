@@ -15,7 +15,7 @@ The GeoPackage Related Tables extension defines the rules and requirements for a
 
 For example, implementing this extension would provide the ability to associated pictures of a house with a specific parcel.
 
-The http://www.opengeospatial.org/projects/initiatives/gpkg-rteie[OGC GeoPackage (GPKG) Related Tables Extension Interoperability Experiment (GPKG-RTE IE)] verified that the extension is correctly designed to be transparent in this manner. The goal of the IE was achieved by building GeoPackages containing embedded multimedia content and sharing those GeoPackages with other software products. This IE produced an OGC Engineering Report <<2>> that discusses whether the extension is fit for use and adoption by the OGC. This extension is intended to be transparent and to not interfere with GPKG compliant, but non-supporting, software packages.
+This extension, like all GeoPackage extensions, is intended to be transparent and to not interfere with GPKG compliant, but non-supporting, software packages. The http://www.opengeospatial.org/projects/initiatives/gpkg-rteie[OGC GeoPackage (GPKG) Related Tables Extension Interoperability Experiment (GPKG-RTE IE)] verified that the extension is correctly designed to meet the design goals and to be transparent in this manner. The goal of the IE was achieved by building GeoPackages containing embedded multimedia content and sharing those GeoPackages with other software products. This IE produced an OGC Engineering Report <<2>> that discusses whether the extension is fit for use and adoption by the OGC.
 
 === Extension Author
 
