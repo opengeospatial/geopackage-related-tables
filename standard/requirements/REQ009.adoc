@@ -4,6 +4,6 @@
 |*Requirement 9* {set:cellbgcolor:#CACCCE}|/req/table-values/udmt_mapping +
  +
 
-A mapping table MAY contain no rows. Each row that is present SHALL map a row of the base table to a row of the attribute table. The `base_id` column SHALL correlate to the primary key of the base table and the `attribute_id` column SHALL correlate to the primary key of the attribute table.
+A mapping table MAY contain no rows. Each row that is present SHALL map a row of the base table to a row of the attribute table. The `base_id` column SHALL correlate to the primary key of the base table (as identified by the `base_primary_column` of the associated row in `gpkgext_relations`). The `attribute_id` column SHALL correlate to the primary key of the attribute table (as identified by the `attributes_primary_column` of the associated row in `gpkg_extensions`).
  {set:cellbgcolor:#FFFFFF}
 |===

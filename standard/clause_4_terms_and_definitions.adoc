@@ -3,5 +3,8 @@ This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r8], which 
 
 For the purposes of this document, the following additional terms and definitions apply.
 
+=== *base data*
+The data (generally, but not exclusively, features) that is being related to as part of this extension
+
 === *term name*
 text of the definition
