@@ -7,22 +7,18 @@ include::requirements/requirements_class_Table_Definitions.adoc[]
 ==== Extended Relations Table
 include::requirements/REQ001.adoc[]
 
-include::requirements/REQ002.adoc[]
-
-include::requirements/REQ003.adoc[]
-
 [[gpkgext_relations_table]]
 .Extended Relations Table Definition
 [cols="10,5,40,5,5,5,5",options="header",]
 |=======================================================================
 |Column Name            |Column Type  |Column Description                                                    |Null |Default  |Key |Unique
 |`id`                   |INTEGER      |Autoincrement primary key                                             |no   |         |PK  |yes
-|`primary_table_name`   |TEXT         |Name of the table containing the features or attributes               |no   |         |    |no
-|`primary_column`       |TEXT         |Name of the primary key column in `primary_table_name`                |no   |         |    |no
+|`base_table_name`   |TEXT         |Name of the table containing the base data (e.g., features) to relate               |no   |         |    |no
+|`base_primary_column`       |TEXT         |Name of the primary key column in `base_table_name`                |no   | `id`        |    |no
 |`attribute_table_name` |TEXT         |Name of the table containing the attributes                           |no   |         |    |no
-|`attribute_column`     |TEXT         |Name of the primary key column in `attribute_table_name`              |no   |         |    |no
-|`relation_name`        |TEXT         |Name of the relation ('media' for this extension)                     |no   |         |    |no
-|`mapping_table`        |TEXT         |Name of a mapping table used to support many-to-many type mappings    |no   |         |    |yes
+|`attribute_primary_column`     |TEXT         |Name of the primary key column in `attribute_table_name`              |no   |  `id`       |    |no
+|`relation_name`        |TEXT         |Name of the relation (`media` for this extension)                     |no   |         |    |no
+|`mapping_table_name`   |TEXT         |Name of a mapping table used to support many-to-many type mappings    |no   |         |    |yes
 |`cardinality`          |TEXT         |One of `one-to-many`, `many-to-one`, or `many-to-many`                |no   |         |    |yes
 |=======================================================================
 
@@ -32,11 +28,7 @@ The `cardinality` column is informational only. It should be populated during th
 ====
 
 ==== User Defined Mapping Tables
-include::requirements/REQ004.adoc[]
-
-include::requirements/REQ005.adoc[]
-
-include::requirements/REQ006.adoc[]
+include::requirements/REQ002.adoc[]
 
 [[gpkgext_user_defined_mapping_table]]
 .User Defined Mapping Table Definition
@@ -44,19 +36,19 @@ include::requirements/REQ006.adoc[]
 
 |=================================================================
 |Column Name           | Column Type | Column Description                                     |Null |Default  |Key |Unique
-|`primary_column_id`   | INTEGER     | Name of the primary key column in the primary table    |no   |         |    |no
-|`attribute_column_id` | INTEGER     | Name of the primary key column in the attribute table  |no   |         |    |no
+|`base_id`   | INTEGER     | The primary key value of the base table    |no   |         |    |no
+|`attribute_id` | INTEGER     | The primary key value of the attribute table  |no   |         |    |no
 |=================================================================
 
 ==== User Defined Attributes (Media) Tables
-include::requirements/REQ007.adoc[]
+include::requirements/REQ003.adoc[]
 
-[[gpkg_user_defined_media_table]]
-.User Defined Media Table Definition
+[[gpkg_user_defined_attributes_table]]
+.User Defined Attributes Table Definition 
 [cols=",,,,",options="header",]
 |=======================================================================
 |Column Name    |Column Type |Column Description        |Null |Key
-|`id`           |INTEGER     |Autoincrement primary key |no   |PK
+|_any_          |INTEGER     |Autoincrement primary key |no   |PK
 |`data`         |BLOB        |Multimedia content        |no   |
 |`content_type` |TEXT        |Mime-type of data         |no   |
 |=======================================================================
@@ -65,7 +57,9 @@ include::requirements/REQ007.adoc[]
 include::requirements/requirements_class_Table_Values.adoc[]
 
 ==== `gpkg_extensions`
-include::requirements/REQ008.adoc[]
+include::requirements/REQ004.adoc[]
+
+include::requirements/REQ005.adoc[]
 
 [[gpkg_extensions_records]]
 .Extensions Table Record
@@ -77,9 +71,14 @@ include::requirements/REQ008.adoc[]
 |=======================================================================
 
 ==== `gpkgext_relations`
-include::requirements/REQ009.adoc[]
+include::requirements/REQ006.adoc[]
 
-include::requirements/REQ010.adoc[]
+include::requirements/REQ007.adoc[]
+
+include::requirements/REQ008.adoc[]
+
+==== User Defined Mapping Tables
+include::requirements/REQ009.adoc[]
 
 ////
 ==== Requirement 1

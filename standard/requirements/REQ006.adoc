@@ -1,9 +1,10 @@
 [[r6]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 6* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt_id +
+|*Requirement 6* {set:cellbgcolor:#CACCCE}|/req/table-values/ext_relations_base +
  +
 
- The two columns of a mapping table SHALL be used to map between the core data table using the `primary_column_id` and the attribute table using the `attribute_column_id`.
+For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `base_table_name` and that table SHALL have an entry in `gpkg_contents`.
  {set:cellbgcolor:#FFFFFF}
 |===
+

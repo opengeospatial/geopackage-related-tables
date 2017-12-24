@@ -1,9 +1,9 @@
 [[r9]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 9* {set:cellbgcolor:#CACCCE}|/req/table-values/contents_primary +
+|*Requirement 9* {set:cellbgcolor:#CACCCE}|/req/table-values/udmt_mapping +
  +
 
-For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `primary_table_name` and that table SHALL have an entry in `gpkg_contents`.
+A mapping table MAY contain no rows. Each row that is present SHALL map a row of the base table to a row of the attribute table. The `base_id` column SHALL correlate to the primary key of the base table and the `attribute_id` column SHALL correlate to the primary key of the attribute table.
  {set:cellbgcolor:#FFFFFF}
 |===

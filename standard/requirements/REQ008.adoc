@@ -1,9 +1,9 @@
 [[r8]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 8* {set:cellbgcolor:#CACCCE}|/req/table-values/extensions +
+|*Requirement 8* {set:cellbgcolor:#CACCCE}|/req/table-values/ext_relations_mapping +
  +
 
-A GeoPackage that complies with the Related Tables extension SHALL contain rows in the `gpkg_extensions` table as described in <<gpkg_extensions_records>>. There SHALL be a row for `gpkgext_relations`.
+For each row in `gpkgext_relations`, the `mapping_table_name` column SHALL contain the name of a user-defined mapping table as described by <<r2,Requirement 2>>.
  {set:cellbgcolor:#FFFFFF}
 |===

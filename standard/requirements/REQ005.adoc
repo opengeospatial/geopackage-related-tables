@@ -1,9 +1,9 @@
 [[r5]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 5* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt_mapping +
+|*Requirement 5* {set:cellbgcolor:#CACCCE}|/req/table-values/extensions +
  +
 
-A mapping table MAY contain no rows. Each row that is present SHALL map a row of a feature/attribute/tile table to a row of the attribute table. The two columns SHALL be used to map between the core data table using the `primary_column_id` and the attribute table using the `attribute_column_id`.
+A GeoPackage that complies with the Related Tables extension SHALL contain rows in the `gpkg_extensions` table for each <<gpkgext_user_defined_mapping_table>> as described in <<gpkg_extensions_records>>.
  {set:cellbgcolor:#FFFFFF}
 |===
