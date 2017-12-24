@@ -3,23 +3,9 @@
 [[Bibliography]]
 = Bibliography
 
-[NOTE]
-.Example Bibliography (Delete this note).
-===============================================
-The TC has approved Springer LNCS as the official document citation type.
+- [[[geopackage]]] http://www.geopackage.org/
+- [[[sqlite]]] http://www.sqlite.org/
+- [[[GPKG1_2]]] http://www.geopackage.org/spec120/index.html[OGC 12-128r14 OGC® GeoPackage Encoding Standard v1.2.0 (On-line)]
+- [[[GPKG-RTE_IE]]] http://www.opengeospatial.org/projects/initiatives/gpkg-rteie[GeoPackage Related Tables Extension Interoperability Experiment]
+- [[[GPKG-RTE_IE_ER]]] GeoPackage Related Tables Extension Interoperability Experiment Engineering Report
 
-Springer LNCS is widely used in technical and computer science journals and other publications
-
-* For citations in the text please use square brackets and consecutive numbers: [1], [2], [3]
-
-– Actual References:
-
-[n] Journal: Author Surname, A.: Title. Publication Title. Volume number, Issue number, Pages Used (Year Published)
-
-[n] Web: Author Surname, A.: Title, http://Website-Url
-
-===============================================
-
-((( Example )))
-[[OGC2015]]
-[1] OGC: OGC Testbed 12 Annex B: Architecture. (2015).

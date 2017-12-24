@@ -1,0 +1,8 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 3* {set:cellbgcolor:#CACCCE}|/req/table-defs/ext_relations_fk +
+ +
+
+The relation defined in the `gpkgext_relations` table may or may not use the id or primary key columns to link the primary and foreign tables.
+ {set:cellbgcolor:#FFFFFF}
+|===

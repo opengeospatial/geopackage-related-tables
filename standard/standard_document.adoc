@@ -1,5 +1,5 @@
-:Title: OGC (add title text)
-:titletext: OGC (add title text)
+:Title: OGC GeoPackage Related Tables Extension
+:titletext: OGC GeoPackage Related Tables Extension
 :doctype: book
 :encoding: utf-8
 :lang: en
@@ -21,10 +21,10 @@
 |Approval Date:   <yyyy-mm-dd>
 |Publication Date:   <yyyy-mm-dd>
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}
-|Internal reference number of this OGC(R) document:    YY-nnnrx
-|Version: n.n
-|Category: OGC(R) <Implementation / Abstract Specification / Best Practice>
-|Editor:   <Name(s) of Editor or Editors>
+|Internal reference number of this OGC(R) document:    17-094
+|Version: 0.1
+|Category: OGC(R) Encoding Standard
+|Editor:   Jeff Yutzler
 |===
 
 [cols = "^", frame = "none"]
@@ -35,7 +35,7 @@
 [cols = "^", frame = "none", grid = "none"]
 |===
 |*Copyright notice*
-|Copyright (C) <year> Open Geospatial Consortium
+|Copyright (C) 2018 Open Geospatial Consortium
 |To obtain additional rights of use, visit http://www.opengeospatial.org/legal/
 |===
 
@@ -50,7 +50,7 @@ Recipients of this document are invited to submit, with their comments, notifica
 
 [width = "50%", grid = "none"]
 |===
-|Document type:   	OGC® <Standard/Abstract Specification/Best Practice>
+|Document type:   	OGC® Standard
 |Document subtype:   	if applicable
 |Document stage:   	Draft
 |Document language: 	English
@@ -101,10 +101,13 @@ include::clause_8_media_types.adoc[]
 ////
 add or remove annexes after "A" as necessary
 ////
-include::annex-a.adoc[]
+include::annex-ats.adoc[]
 
 <<<
-include::annex-n.adoc[]
+include::annex-example.adoc[]
+
+<<<
+include::annex-sql.adoc[]
 
 <<<
 ////

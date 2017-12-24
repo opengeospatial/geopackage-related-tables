@@ -1,5 +1,6 @@
 == Scope
-[NOTE]
-====
-Insert Scope text here. Give the subject of the document and the aspects of that scope covered by the document.
-====
+A GeoPackage <<geopackage>> is a platform-independent SQLite <<sqlite>> database file that contains GeoPackage data and metadata tables.
+GeoPackage is designed to be extensible, including support for additional data types.
+
+This document defines an extension that allows a GeoPackage to contain additional data that is related to one or more features or attributes.
+As an example, this can be used to establish a many-to-many relationship between features (e.g. points, lines, or areas) and multimedia files. 

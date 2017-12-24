@@ -1,0 +1,7 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 10* {set:cellbgcolor:#CACCCE}|/req/table-values/contents-attributes +
+ +
+
+For each row in `gpkgext_relations`, there SHALL be a table or view of the name specified in `attribute_table_name`. This attributes table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes'. The attribute table SHALL be a user-defined media table as defined by <<gpkg_user_defined_media_table>>. {set:cellbgcolor:#FFFFFF}
+|===

@@ -1,4 +1,4 @@
-== Clause containing normative material
+== Requirements (Normative)
 Paragraph
 
 === Requirement Class A or Requirement A Example

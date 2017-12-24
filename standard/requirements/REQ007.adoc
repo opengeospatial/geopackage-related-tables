@@ -1,0 +1,8 @@
+[width="90%",cols="2,6"]
+|===
+|*Requirement 7* {set:cellbgcolor:#CACCCE}|/req/table-defs/udat_table +
+ +
+
+A GeoPackage that complies with this extension SHALL contain one or more user-defined attribute (media) tables or views as per <<gpkg_user_defined_media_table>>. These tables MAY contain other columns.
+ {set:cellbgcolor:#FFFFFF}
+|===
