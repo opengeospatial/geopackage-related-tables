@@ -1,5 +1,5 @@
-:Title: OGC GeoPackage Related Tables Extension
-:titletext: OGC GeoPackage Related Tables Extension
+:Title: OGC GeoPackage Related Tables Extension (DRAFT)
+:titletext: OGC GeoPackage Related Tables Extension (DRAFT)
 :doctype: book
 :encoding: utf-8
 :lang: en

@@ -67,6 +67,15 @@ include::requirements/requirements_class_Table_Values.adoc[]
 ==== `gpkg_extensions`
 include::requirements/REQ008.adoc[]
 
+[[gpkg_extensions_records]]
+.Extensions Table Record
+[cols=",,,,",options="header",]
+|=======================================================================
+|table_name|column_name|extension_name|definition|scope
+|`gpkgext_relations`|null|`related_tables`|TBD|`read-write`
+|_name of actual <<gpkgext_user_defined_mapping_table,extended relations mapping table>>_|null|`related_tables`|TBD|`read-write`
+|=======================================================================
+
 ==== `gpkgext_relations`
 include::requirements/REQ009.adoc[]
 

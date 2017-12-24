@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>OGC GeoPackage Related Tables Extension</title>
+<title>OGC GeoPackage Related Tables Extension (DRAFT)</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -430,7 +430,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>OGC GeoPackage Related Tables Extension</h1>
+<h1>OGC GeoPackage Related Tables Extension (DRAFT)</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -479,7 +479,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">OGC GeoPackage Related Tables Extension</strong></p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong class="big">OGC GeoPackage Related Tables Extension (DRAFT)</strong></p></td>
 </tr>
 </tbody>
 </table>
@@ -860,7 +860,7 @@ As an example, this can be used to establish a many-to-many relationship between
 <td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirement 2</strong> </p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/req/table-defs/ext_relations_mapping<br>
 <br></p>
-<p class="tableblock">If a mapping to support many-to-many relationships is required, the <code>mapping_table</code> column SHALL contain the name of a table that has two columns named <code>primary_column_value</code> and <code>foreign_column_value</code> which will contain data values for, and link to, the <code>primary_column</code> and <code>foreign_column</code> named in the <code>gpkgext_relations</code> table. <a href="#r4">[r4]</a> describes this table. For many-to-many cases, this would be the primary key or <code>id</code> column.
+<p class="tableblock">If a mapping to support many-to-many relationships is required, the <code>mapping_table</code> column SHALL contain the name of a table that has two columns named <code>primary_column_value</code> and <code>foreign_column_value</code> which will contain data values for, and link to, the <code>primary_column</code> and <code>foreign_column</code> named in the <code>gpkgext_relations</code> table. <a href="#r4">Requirement 4</a> describes this table. For many-to-many cases, this would be the primary key or <code>id</code> column.
  </p></td>
 </tr>
 </tbody>
@@ -1183,8 +1183,43 @@ As an example, this can be used to establish a many-to-many relationship between
 <td class="tableblock halign-left valign-top" style="background-color: #CACCCE;"><p class="tableblock"><strong>Requirement 8</strong> </p></td>
 <td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">/req/table-values/extensions<br>
 <br></p>
-<p class="tableblock">A GeoPackage that complies with the Related Tables extension SHALL contain rows in the <code>gpkg_extensions</code> table as described in <a href="#gpkg_extensions_records">[gpkg_extensions_records]</a>. There SHALL be a row for <code>gpkgext_relations</code>.
+<p class="tableblock">A GeoPackage that complies with the Related Tables extension SHALL contain rows in the <code>gpkg_extensions</code> table as described in <a href="#gpkg_extensions_records">Extensions Table Record</a>. There SHALL be a row for <code>gpkgext_relations</code>.
  </p></td>
+</tr>
+</tbody>
+</table>
+<table id="gpkg_extensions_records" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 4. Extensions Table Record</caption>
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">table_name</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">column_name</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">extension_name</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">definition</th>
+<th class="tableblock halign-left valign-top" style="background-color: #FFFFFF;">scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>gpkgext_relations</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">null</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>related_tables</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TBD</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>read-write</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><em>name of actual <a href="#gpkgext_user_defined_mapping_table">extended relations mapping table</a></em></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">null</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>related_tables</code></p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TBD</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><code>read-write</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -1312,7 +1347,7 @@ Using the <a href="#features_to_media">features_to_media table</a>,</p>
 </ul>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 4. gpkgext_relations table values</caption>
+<caption class="title">Table 5. gpkgext_relations table values</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 14.2857%;">
@@ -1346,7 +1381,7 @@ Using the <a href="#features_to_media">features_to_media table</a>,</p>
 </tbody>
 </table>
 <table id="features" class="tableblock frame-all grid-all" style="width: 50%;">
-<caption class="title">Table 5. features table values</caption>
+<caption class="title">Table 6. features table values</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1377,7 +1412,7 @@ Using the <a href="#features_to_media">features_to_media table</a>,</p>
 </tbody>
 </table>
 <table id="media" class="tableblock frame-all grid-all" style="width: 80%;">
-<caption class="title">Table 6. media table values</caption>
+<caption class="title">Table 7. media table values</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1409,7 +1444,7 @@ Using the <a href="#features_to_media">features_to_media table</a>,</p>
 </tbody>
 </table>
 <table id="features_to_media" class="tableblock frame-all grid-all spread">
-<caption class="title">Table 7. features_to_media table</caption>
+<caption class="title">Table 8. features_to_media table</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1457,7 +1492,7 @@ Using the <a href="#features_to_media">features_to_media table</a>,</p>
 <h2 id="_table_definition_sql"><a class="anchor" href="#_table_definition_sql"></a>Annex C: Table Definition SQL</h2>
 <div class="sectionbody">
 <table id="gpkgext_relations_sql" class="tableblock frame-all grid-all spread">
-<caption class="title">Table 8. Extended Relations Table Definition SQL (Normative)</caption>
+<caption class="title">Table 9. Extended Relations Table Definition SQL (Normative)</caption>
 </table>
 <div class="listingblock">
 <div class="content">
@@ -1474,7 +1509,7 @@ Using the <a href="#features_to_media">features_to_media table</a>,</p>
 </div>
 </div>
 <table id="gpkgext_user_defined_mapping_table_sql" class="tableblock frame-all grid-all spread">
-<caption class="title">Table 9. Extended Relations Mapping Table SQL (Informative)</caption>
+<caption class="title">Table 10. Extended Relations Mapping Table SQL (Informative)</caption>
 </table>
 <div class="listingblock">
 <div class="content">
@@ -1485,7 +1520,7 @@ Using the <a href="#features_to_media">features_to_media table</a>,</p>
 </div>
 </div>
 <table id="gpkg_features_sql" class="tableblock frame-all grid-all spread">
-<caption class="title">Table 10. Example User Defined Features Table Definition SQL (Informative)</caption>
+<caption class="title">Table 11. Example User Defined Features Table Definition SQL (Informative)</caption>
 </table>
 <div class="listingblock">
 <div class="content">
@@ -1502,7 +1537,7 @@ Using the <a href="#features_to_media">features_to_media table</a>,</p>
 <p>This table is a modified version of <a href="http://www.geopackage.org/spec/#_sample_feature_table_informative">the informative example in the core document</a>.</p>
 </div>
 <table id="gpkg_extensions_sql" class="tableblock frame-all grid-all spread">
-<caption class="title">Table 11. Example User Defined Media Table Definition SQL (Informative)</caption>
+<caption class="title">Table 12. Example User Defined Media Table Definition SQL (Informative)</caption>
 </table>
 <div class="listingblock">
 <div class="content">
@@ -1582,7 +1617,7 @@ Using the <a href="#features_to_media">features_to_media table</a>,</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-24 10:39:00 EST
+Last updated 2017-12-24 11:38:21 EST
 </div>
 </div>
 </body>
