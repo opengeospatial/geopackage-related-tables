@@ -1,8 +1,9 @@
+[[r9]]
 [width="90%",cols="2,6"]
 |===
 |*Requirement 9* {set:cellbgcolor:#CACCCE}|/req/table-values/contents_primary +
  +
 
- A GeoPackage that complies with this extension SHALL contain a `gpkgext_relations` table or view as per <<gpkgext_relations_table>> and <<gpkgext_relations_sql>>.
+For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `primary_table_name` and that table SHALL have an entry in `gpkg_contents`.
  {set:cellbgcolor:#FFFFFF}
 |===

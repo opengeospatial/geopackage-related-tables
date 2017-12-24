@@ -1,3 +1,4 @@
+[[r6]]
 [width="90%",cols="2,6"]
 |===
 |*Requirement 6* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt_id +

@@ -91,7 +91,10 @@ include::clause_4_terms_and_definitions.adoc[]
 
 include::clause_5_conventions.adoc[]
 
+////
+There is no informative text at this time
 include::clause_6_informative_text.adoc[]
+////
 
 include::clause_7_normative_text.adoc[]
 

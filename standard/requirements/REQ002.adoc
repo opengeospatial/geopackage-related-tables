@@ -1,8 +1,9 @@
+[[r2]]
 [width="90%",cols="2,6"]
 |===
 |*Requirement 2* {set:cellbgcolor:#CACCCE}|/req/table-defs/ext_relations_mapping +
  +
 
-If a mapping to support many-to-many relationships is required, the `mapping_table` column SHALL contain the name of a table that has two columns named `primary_column_value` and `foreign_column_value` which will contain data values for, and link to, the `primary_column` and `foreign_column` named in the `gpkgext_relations` table. <<r2>> describes this table. For many-to-many cases, this would be the primary key or `id` column.
+If a mapping to support many-to-many relationships is required, the `mapping_table` column SHALL contain the name of a table that has two columns named `primary_column_value` and `foreign_column_value` which will contain data values for, and link to, the `primary_column` and `foreign_column` named in the `gpkgext_relations` table. <<r4>> describes this table. For many-to-many cases, this would be the primary key or `id` column.
  {set:cellbgcolor:#FFFFFF}
 |===

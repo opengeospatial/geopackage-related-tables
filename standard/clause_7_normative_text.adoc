@@ -1,19 +1,83 @@
 == Requirements (Normative)
-Paragraph
 
-=== Requirement Class A or Requirement A Example
-Paragraph – intro text for the requirement class.
 
-Use the following table for Requirements Classes.
+=== Requirement Class 1 – Table Definitions
+include::requirements/requirements_class_Table_Definitions.adoc[]
 
-include::requirements/requirements_class.adoc[]
+==== Extended Relations Table
+include::requirements/REQ001.adoc[]
 
+include::requirements/REQ002.adoc[]
+
+include::requirements/REQ003.adoc[]
+
+[[gpkgext_relations_table]]
+.Extended Relations Table Definition
+[cols="10,5,40,5,5,5,5",options="header",]
+|=======================================================================
+|Column Name            |Column Type  |Column Description                                                    |Null |Default  |Key |Unique
+|`id`                   |INTEGER      |Autoincrement primary key                                             |no   |         |PK  |yes
+|`primary_table_name`   |TEXT         |Name of the table containing the features or attributes               |no   |         |    |no
+|`primary_column`       |TEXT         |Name of the primary key column in `primary_table_name`                |no   |         |    |no
+|`attribute_table_name` |TEXT         |Name of the table containing the attributes                           |no   |         |    |no
+|`attribute_column`     |TEXT         |Name of the primary key column in `attribute_table_name`              |no   |         |    |no
+|`relation_name`        |TEXT         |Name of the relation ('media' for this extension)                     |no   |         |    |no
+|`mapping_table`        |TEXT         |Name of a mapping table used to support many-to-many type mappings    |no   |         |    |yes
+|`cardinality`          |TEXT         |One of `one-to-many`, `many-to-one`, or `many-to-many`                |no   |         |    |yes
+|=======================================================================
+
+[NOTE]
+====
+The `cardinality` column is informational only. It should be populated during the data load process and updated by the GeoPackage client if needed. Export processes may use this column to determine the right way to export the data.
+====
+
+==== User Defined Mapping Tables
+include::requirements/REQ004.adoc[]
+
+include::requirements/REQ005.adoc[]
+
+include::requirements/REQ006.adoc[]
+
+[[gpkgext_user_defined_mapping_table]]
+.User Defined Mapping Table Definition
+[cols=",,,,,,",options="header",]
+
+|=================================================================
+|Column Name           | Column Type | Column Description                                     |Null |Default  |Key |Unique
+|`primary_column_id`   | INTEGER     | Name of the primary key column in the primary table    |no   |         |    |no
+|`attribute_column_id` | INTEGER     | Name of the primary key column in the attribute table  |no   |         |    |no
+|=================================================================
+
+==== User Defined Attributes (Media) Tables
+include::requirements/REQ007.adoc[]
+
+[[gpkg_user_defined_media_table]]
+.User Defined Media Table Definition
+[cols=",,,,",options="header",]
+|=======================================================================
+|Column Name    |Column Type |Column Description        |Null |Key
+|`id`           |INTEGER     |Autoincrement primary key |no   |PK
+|`data`         |BLOB        |Multimedia content        |no   |
+|`content_type` |TEXT        |Mime-type of data         |no   |
+|=======================================================================
+
+=== Requirement Class 2 – Table Values
+include::requirements/requirements_class_Table_Values.adoc[]
+
+==== `gpkg_extensions`
+include::requirements/REQ008.adoc[]
+
+==== `gpkgext_relations`
+include::requirements/REQ009.adoc[]
+
+include::requirements/REQ010.adoc[]
+
+////
 ==== Requirement 1
 Paragraph - intro text for the requirement.
 
 Use the following table for Requirements, number sequentially.
 
-include::requirements/requirement.adoc[]
 
 Dictionary tables for requirements can be added as necessary. Modify the following example as needed.
 
@@ -24,3 +88,4 @@ Dictionary tables for requirements can be added as necessary. Modify the followi
 |name 2 |definition of name 2 |character string type, not empty |Zero or one (optional)
 |name 3 |definition of name 3 |GML:: Point PropertyType |One (mandatory)
 |===
+////

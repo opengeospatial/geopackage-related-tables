@@ -1,7 +1,9 @@
+[[r4]]
 [width="90%",cols="2,6"]
 |===
 |*Requirement 4* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt_table +
  +
 
 A GeoPackage that complies with this extension SHALL contain a mapping table for each distinct value in the `mapping_table` column of the `gpkgext_relations_table` as per  <<gpkgext_user_defined_mapping_table>>.
+{set:cellbgcolor:#FFFFFF}
 |===

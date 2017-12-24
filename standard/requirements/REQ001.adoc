@@ -1,3 +1,4 @@
+[[r1]]
 [width="90%",cols="2,6"]
 |===
 |*Requirement 1* {set:cellbgcolor:#CACCCE}|/req/table-defs/ext_relations_table +

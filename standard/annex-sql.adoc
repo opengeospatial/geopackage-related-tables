@@ -1,6 +1,71 @@
 [appendix]
 :appendix-caption: Annex
-== Title ( {Normative/Informative} )
+== Table Definition SQL
 
-[NOTE]
-Place other Annex material in sequential annexes beginning with "B" and leave final two annexes for the Revision History and Bibliography
+
+[[gpkgext_relations_sql]]
+.Extended Relations Table Definition SQL (Normative)
+[cols=","]
+|=============
+|
+|=============
+[source,sql]
+----
+CREATE TABLE 'gpkgext_relations' (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  primary_table_name TEXT NOT NULL,
+  primary_column TEXT NOT NULL,
+  foreign_table_name TEXT NOT NULL,
+  foreign_column TEXT NOT NULL,
+  relation_name TEXT NOT NULL,
+  mapping_table TEXT UNIQUE,
+  cardinality TEXT NOT NULL
+ );
+----
+
+[[gpkgext_user_defined_mapping_table_sql]]
+.Extended Relations Mapping Table SQL (Informative)
+[cols=","]
+|=============
+|
+|=============
+[source,sql]
+----
+CREATE TABLE 'sample_mapping_table' (
+  primary_column_id INTEGER NOT NULL,
+  attribute_column_id INTEGER NOT NULL
+ );
+----
+
+[[gpkg_features_sql]]
+.Example User Defined Features Table Definition SQL (Informative)
+[cols=","]
+|=============
+|
+|=============
+[source,sql]
+----
+CREATE TABLE 'sample_feature_table' (
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  geometry GEOMETRY,
+  text_attribute TEXT,
+  real_attribute REAL,
+  boolean_attribute BOOLEAN,
+  relation TEXT NULL);
+----
+This table is a modified version of http://www.geopackage.org/spec/#_sample_feature_table_informative[the informative example in the core document].
+
+[[gpkg_extensions_sql]]
+.Example User Defined Media Table Definition SQL (Informative)
+[cols=","]
+|=============
+|
+|=============
+[source,sql]
+----
+CREATE TABLE 'sample_media' (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  data BLOB NOT NULL,
+  content_type TEXT NOT NULL,
+  relation TEXT NULL);
+----
