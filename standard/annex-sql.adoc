@@ -13,12 +13,12 @@
 ----
 CREATE TABLE 'gpkgext_relations' (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  primary_table_name TEXT NOT NULL,
-  primary_column TEXT NOT NULL,
-  foreign_table_name TEXT NOT NULL,
-  foreign_column TEXT NOT NULL,
+  base_table_name TEXT NOT NULL,
+  base_primary_column TEXT NOT NULL DEFAULT 'id',
+  attribute_table_name TEXT NOT NULL,
+  attribute_primary_column TEXT NOT NULL DEFAULT 'id',
   relation_name TEXT NOT NULL,
-  mapping_table TEXT UNIQUE,
+  mapping_table_name TEXT UNIQUE,
   cardinality TEXT NOT NULL
  );
 ----
@@ -32,8 +32,8 @@ CREATE TABLE 'gpkgext_relations' (
 [source,sql]
 ----
 CREATE TABLE 'sample_mapping_table' (
-  primary_column_id INTEGER NOT NULL,
-  attribute_column_id INTEGER NOT NULL
+  base_id INTEGER NOT NULL,
+  attribute_id INTEGER NOT NULL
  );
 ----
 
@@ -50,8 +50,7 @@ CREATE TABLE 'sample_feature_table' (
   geometry GEOMETRY,
   text_attribute TEXT,
   real_attribute REAL,
-  boolean_attribute BOOLEAN,
-  relation TEXT NULL);
+  boolean_attribute BOOLEAN)
 ----
 This table is a modified version of http://www.geopackage.org/spec/#_sample_feature_table_informative[the informative example in the core document].
 
@@ -66,6 +65,5 @@ This table is a modified version of http://www.geopackage.org/spec/#_sample_feat
 CREATE TABLE 'sample_media' (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   data BLOB NOT NULL,
-  content_type TEXT NOT NULL,
-  relation TEXT NULL);
+  content_type TEXT NOT NULL)
 ----
