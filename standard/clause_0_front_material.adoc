@@ -1,11 +1,12 @@
 [big]*i.     Abstract*
 
 A GeoPackage <<geopackage>> is a platform-independent SQLite <<sqlite>> database file that contains GeoPackage data and metadata tables.
-GeoPackage is designed to be extensible, including support for additional data types.
+GeoPackages, as described by the GeoPackage Encoding Standard <<GPKG1_2>> are designed to be extensible, including support for additional data types. 
+This document defines the Related Tables Extension (RTE) for the GeoPackage Encoding Standard.
 
-This document defines an extension that allows a GeoPackage to contain additional data that is related to base data (generally features).
-As an example, this can be used to establish a many-to-many relationship between features (e.g. points, lines, or areas) and multimedia files. 
-To support this, an ancillary data table (`gpkgext_relations`) is used in conjunction with user-defined mapping tables.
+The RTE defines the rules and requirements for creating relationships in a GeoPackage data store between geospatial data tables and other tables that contain or reference related content such as attributes or media. 
+Geospatial data tables (such as features or tiles tables) contain location information and/or geometries.
+There are many examples of where the RTE can be used including relating parcel (land lot) features to pictures of that parcel or linking census boundaries to the related demographic census data.
 
 [big]*ii.    Keywords*
 
@@ -15,13 +16,18 @@ ogcdoc, OGC document, GeoPackage, extension, related tables, multimedia
 
 [big]*iii.   Preface*
 
-The GeoPackage Related Tables extension defines the rules and requirements for associating tables with existing feature or attribute tables in a GeoPackage <<GPKG1_2>> data store. One use case for this extension is to associate features with related multimedia content such as:
+The GeoPackage Related Tables Extension (RTE) defines the rules and requirements for creating relationships in a GeoPackage <<geopackage>> data store between geospatial data tables and other tables that contain or reference related content such as attributes or media. 
+Geospatial data tables (such as features or tiles tables) contain location information and/or geometries.
+Conceptually, this extension is similar to the OGC Table Joining Service Interface Standard <<OGC-TJS-IS>>.
 
-* photographs;
-* audio or video files; or,
+One use case for this extension is to associate features with related multimedia content such as:
+
+* photographs.
+* audio or video files.
 * PDFs.
 
-For example, implementing this extension would provide the ability to associated pictures of a house with a specific parcel.
+There are many examples of where the RTE can be used including relating parcel (land lot) features to pictures of that parcel or linking census boundaries to the related demographic census data.
+To support this capability, an ancillary data table (`gpkgext_relations`) is used in conjunction with user-defined mapping tables.
 
 This extension, like all GeoPackage extensions, is intended to be transparent and to not interfere with GPKG compliant, but non-supporting, software packages. The OGC GeoPackage (GPKG) Related Tables Extension Interoperability Experiment (GPKG-RTE IE) <<GPKG-RTE_IE>> verified that the extension is correctly designed to meet the design goals and to be transparent in this manner. The goal of the IE was achieved by building GeoPackages containing embedded multimedia content and sharing those GeoPackages with other software products. This IE produced an OGC Engineering Report <<GPKG-RTE_IE_ER>> that discusses whether the extension is fit for use and adoption by the OGC.
 
@@ -33,9 +39,9 @@ The following information is provided in compliance with the GeoPackage Extensio
 * Applicability: This extension defines a relationship between feature tables and aspatial tables that hold related content (e.g., media).
 * Scope: read-write
 
-Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
+_Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights._
 
-Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation.
+_Recipients of this document are requested to submit, with their comments, notification of any relevant patent claims or other intellectual property rights of which they may be aware that might be infringed by any implementation of the standard set forth in this document, and to provide supporting documentation._
 
 [big]*iv.    Submitting organizations*
 
