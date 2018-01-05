@@ -1,4 +1,4 @@
 [NOTE]
 ====
-This extension is in the process of being migrated to an OGC Encoding Standard. Please see http://www.geopackage.org/17-093.html#_requirements_normative for the working draft of this standard.
+This extension is in the process of being migrated to an OGC Encoding Standard. Please see http://www.geopackage.org/18-000.html#_requirements_normative for the working draft of this standard. The source material is https://github.com/jyutzler/geopackage-related-tables/tree/master/standard[here].
 ====
