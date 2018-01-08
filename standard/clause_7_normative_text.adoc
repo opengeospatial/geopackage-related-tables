@@ -18,7 +18,7 @@ include::requirements/REQ001.adoc[]
 |`attribute_table_name` |TEXT         |Name of the table containing the attributes                           |no   |         |    |no
 |`attribute_primary_column`     |TEXT         |Name of the primary key column in `attribute_table_name`              |no   |  `id`       |    |no
 |`relation_name`        |TEXT         |Name of the relation (`media` for this extension)                     |no   |         |    |no
-|`mapping_table_name`   |TEXT         |Name of a mapping table used to support many-to-many type mappings    |no   |         |    |yes?
+|`mapping_table_name`   |TEXT         |Name of a mapping table used to support many-to-many type mappings    |no   |         |    |yes
 |`cardinality`          |TEXT         |One of `one-to-many`, `many-to-one`, or `many-to-many`                |no   |         |    |no
 |=======================================================================
 
