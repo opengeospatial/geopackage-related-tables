@@ -18,7 +18,7 @@ CREATE TABLE 'gpkgext_relations' (
   attribute_table_name TEXT NOT NULL,
   attribute_primary_column TEXT NOT NULL DEFAULT 'id',
   relation_name TEXT NOT NULL,
-  mapping_table_name TEXT UNIQUE,
+  mapping_table_name TEXT NOT NULL UNIQUE,
   cardinality TEXT NOT NULL
  );
 ----
