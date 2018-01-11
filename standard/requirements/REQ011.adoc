@@ -1,0 +1,9 @@
+[[r11]]
+[width="90%",cols="2,6"]
+|===
+|*Requirement 11* {set:cellbgcolor:#CACCCE}|/req/media/table_def +
+ +
+
+A user-defined media table or view SHALL contain all of the columns described in <<gpkg_user_defined_media_table>>. It MAY also contain other columns.
+{set:cellbgcolor:#FFFFFF}
+|===

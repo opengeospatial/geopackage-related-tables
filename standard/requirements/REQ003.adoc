@@ -1,9 +1,9 @@
 [[r3]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 3* {set:cellbgcolor:#CACCCE}|/req/table-defs/udat +
+|*Requirement 3* {set:cellbgcolor:#CACCCE}|/req/media/udmt +
  +
 
-A GeoPackage that complies with this extension SHALL contain an attribute table or view for each distinct value in the `attribute_table_name` column of `gpkgext_relations`. These attribute tables SHALL contain all of the columns described in <<gpkg_user_defined_attributes_table>> but they MAY also contain other columns.
+A GeoPackage that complies with this extension SHALL contain a user-defined media table or view for each distinct value in the `attribute_table_name` column of `gpkgext_relations` with a `relation_name` of "media".
  {set:cellbgcolor:#FFFFFF}
 |===

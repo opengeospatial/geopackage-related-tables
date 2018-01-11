@@ -4,6 +4,6 @@
 |*Requirement 2* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt +
  +
 
-A GeoPackage that complies with this extension SHALL contain a mapping table for each distinct value in the `mapping_table_name` column of the `gpkgext_relations_table` as per  <<gpkgext_user_defined_mapping_table>>.
+A user-defined mapping table or view SHALL conform to <<gpkgext_user_defined_mapping_table>>.
 {set:cellbgcolor:#FFFFFF}
 |===

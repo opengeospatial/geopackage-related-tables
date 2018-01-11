@@ -4,6 +4,6 @@
 |*Requirement 5* {set:cellbgcolor:#CACCCE}|/req/table-defs/extensions +
  +
 
-A GeoPackage that complies with the Related Tables extension SHALL contain rows in the `gpkg_extensions` table for each <<user_defined_mapping_table,User Defined Mapping Table>> as described in <<gpkg_extensions_records>>.
+A GeoPackage that complies with the Related Tables Extension SHALL contain rows in the `gpkg_extensions` table for each <<user_defined_mapping_table,User Defined Mapping Table>> as described in <<gpkg_extensions_records>>.
  {set:cellbgcolor:#FFFFFF}
 |===
