@@ -1,10 +1,9 @@
 [[r7]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 7* {set:cellbgcolor:#CACCCE}|/req/table-defs/ext_relations_attributes +
+|*Requirement 7* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt +
  +
 
-For each row in `gpkgext_relations`, the `attributes_table_name` column SHALL contain the name of a user-defined attributes table as described by <<user_defined_attributes_table>>.
+A user-defined mapping table or view SHALL conform to <<gpkgext_user_defined_mapping_table>>.
 {set:cellbgcolor:#FFFFFF}
 |===
-

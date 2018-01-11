@@ -1,10 +1,9 @@
 [[r6]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 6* {set:cellbgcolor:#CACCCE}|/req/table-defs/ext_relations_base +
+|*Requirement 6* {set:cellbgcolor:#CACCCE}|/req/table-defs/ger_udmt +
  +
 
-For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `geospatial_table_name` and that table SHALL have an entry in `gpkg_contents`.
+For each row in `gpkgext_relations`, the `mapping_table_name` column SHALL contain the name of a user-defined mapping table or view as described by <<user_defined_mapping_table>>.
  {set:cellbgcolor:#FFFFFF}
 |===
-

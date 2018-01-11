@@ -5,9 +5,9 @@ include::requirements/requirements_class_Table_Definitions.adoc[]
 
 ==== `gpkg_extensions`
 ===== Table Values 
-include::requirements/REQ004.adoc[]
+include::requirements/REQ001.adoc[]
 
-include::requirements/REQ005.adoc[]
+include::requirements/REQ002.adoc[]
 
 [[gpkg_extensions_records]]
 .Extensions Table Record
@@ -19,7 +19,7 @@ include::requirements/REQ005.adoc[]
 |=======================================================================
 
 ==== `gpkgext_relations`
-include::requirements/REQ001.adoc[]
+include::requirements/REQ003.adoc[]
 
 ===== Table Definition
 [[gpkgext_relations_table]]
@@ -38,16 +38,16 @@ include::requirements/REQ001.adoc[]
 |=======================================================================
 
 ===== Table Values
-include::requirements/REQ006.adoc[]
+include::requirements/REQ004.adoc[]
 
 [NOTE]
 ====
 See <<gpkg_features_sql>> for example SQL for creating a features table for use with this extension.
 ====
 
-include::requirements/REQ007.adoc[]
+include::requirements/REQ005.adoc[]
 
-include::requirements/REQ008.adoc[]
+include::requirements/REQ006.adoc[]
 
 
 [NOTE]
@@ -58,7 +58,7 @@ The `cardinality` column is informational only. It should be populated during th
 [[user_defined_mapping_table]]
 ==== User-Defined Mapping Tables
 ===== Table Definition
-include::requirements/REQ002.adoc[]
+include::requirements/REQ007.adoc[]
 
 [[gpkgext_user_defined_mapping_table]]
 .User-Defined Mapping Table Definition
@@ -76,9 +76,9 @@ See <<gpkgext_user_defined_mapping_table_sql>> for example SQL for defining a us
 ====
 
 ===== Table Values
-include::requirements/REQ009.adoc[]
+include::requirements/REQ008.adoc[]
 
-include::requirements/REQ012.adoc[]
+include::requirements/REQ009.adoc[]
 
 [NOTE]
 ====
@@ -95,9 +95,9 @@ include::requirements/requirements_class_Media.adoc[]
 
 ==== User-Defined Media Tables
 ===== Table Definition
-include::requirements/REQ003.adoc[]
-
 include::requirements/REQ011.adoc[]
+
+include::requirements/REQ012.adoc[]
 
 [[gpkg_user_defined_media_table]]
 .User-Defined Media Table Definition 

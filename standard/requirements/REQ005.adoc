@@ -1,9 +1,10 @@
 [[r5]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 5* {set:cellbgcolor:#CACCCE}|/req/table-defs/extensions +
+|*Requirement 5* {set:cellbgcolor:#CACCCE}|/req/table-defs/ger_attributes +
  +
 
-A GeoPackage that complies with the Related Tables Extension SHALL contain rows in the `gpkg_extensions` table for each <<user_defined_mapping_table,User Defined Mapping Table>> as described in <<gpkg_extensions_records>>.
- {set:cellbgcolor:#FFFFFF}
+For each row in `gpkgext_relations`, the `attributes_table_name` column SHALL contain the name of a user-defined attributes table as described by <<user_defined_attributes_table>>.
+{set:cellbgcolor:#FFFFFF}
 |===
+

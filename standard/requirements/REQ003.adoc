@@ -1,9 +1,9 @@
 [[r3]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 3* {set:cellbgcolor:#CACCCE}|/req/media/udmt +
+|*Requirement 3* {set:cellbgcolor:#CACCCE}|/req/table-defs/ger +
  +
 
-A user-defined attributes table or view SHALL be a user-defined media table or view if the row in `gpkgext_relations` with a corresponding `attributes_table_name` has a `relation_name` of "media".
+ A GeoPackage that complies with this extension SHALL contain a `gpkgext_relations` table as per <<gpkgext_relations_table>> and <<gpkgext_relations_sql>>.
  {set:cellbgcolor:#FFFFFF}
 |===

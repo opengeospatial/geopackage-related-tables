@@ -1,9 +1,9 @@
 [[r9]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 9* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt_geospatial +
+|*Requirement 9* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt_attributes +
  +
 
-For each row of a user-defined mapping table, the `geospatial_id` column SHALL correlate to the primary key of the corresponding geospatial table (as identified by the `geospatial_primary_column` of the associated row in `gpkgext_relations`).
+For each row of a user-defined mapping table, the `attributes_id` column SHALL correlate to the primary key of the corresponding attributes table (as identified by the `attributes_primary_column` of the associated row in `gpkgext_relations`).
  {set:cellbgcolor:#FFFFFF}
 |===
