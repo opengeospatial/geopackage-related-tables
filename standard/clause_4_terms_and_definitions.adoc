@@ -3,9 +3,27 @@ This document uses the terms defined in Sub-clause 5.3 of <<OWS_COMMON>>, which 
 
 For the purposes of this document, the following additional terms and definitions apply.
 
+=== *cardinality*
+A relationship between two entities `A` and `B`. For the purposes of this extension, `A` refers geospatial data and `B` refers to related data. 
+
 === *geospatial data*
 Data containing location information and/or geometries. 
 In a GeoPackage, geospatial data may be stored in features or tiles tables.
 
-=== *term name*
-text of the definition
+=== *one-to-many*
+A type of cardinality in which an element of `A` may be linked to zero or more elements of `B`, but an element of `B` is linked to one and only one element of `A`. 
+
+=== *many-to-many*
+A type of cardinality in which an element of `A` may be linked to zero or more elements of `B` and an element of `B` may be linked to zero or more elements of `A`. 
+
+=== *many-to-one*
+A type of cardinality in which an element of `A` is linked to one and only one element of `B`, but an element of `B` may be linked to zero or more elements of `A`. 
+
+=== *related data*
+Data that is linked in some way to geospatial data. In this extension, related data is stored in a user-defined attributes table.
+
+=== *user-defined attributes table*
+In this extension, a user-defined attributes table is a table that contains data that is related to existing geospatial data.
+
+=== *user-defined mapping table*
+In this extension, a user-defined mapping table is a join table that links geospatial data and related data.
