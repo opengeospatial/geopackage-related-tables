@@ -27,3 +27,7 @@ In this extension, a user-defined attributes table is a table that contains data
 
 === *user-defined mapping table*
 In this extension, a user-defined mapping table is a join table that links geospatial data and related data.
+
+=== *user-defined media table*
+In this extension, a user-defined media table is a user-defined attributes table that is specifically designed to contain multimedia content.
+

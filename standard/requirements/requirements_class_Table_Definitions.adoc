@@ -4,5 +4,6 @@
 2+|http://www.opengis.net/spec/gpkg-rt/1.0/table-defs {set:cellbgcolor:#FFFFFF}
 |Target type |Token
 |Dependency |http://www.geopackage.org/spec120/#features
+|Dependency |http://www.geopackage.org/spec120/#tiles
 |Dependency |http://www.geopackage.org/spec120/#attributes
 |===

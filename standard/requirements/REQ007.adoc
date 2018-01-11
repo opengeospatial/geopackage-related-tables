@@ -4,6 +4,7 @@
 |*Requirement 7* {set:cellbgcolor:#CACCCE}|/req/table-defs/ext_relations_attributes +
  +
 
-For each row in `gpkgext_relations`, there SHALL be a table or view of the name specified in `attribute_table_name`. This attributes table SHALL have an entry in `gpkg_contents` with a `data_type` of 'attributes'. The attribute table SHALL be a user-defined attributes table as defined by <<gpkg_user_defined_attributes_table>>. {set:cellbgcolor:#FFFFFF}
+For each row in `gpkgext_relations`, the `attributes_table_name` column SHALL contain the name of a user-defined attributes table as described by <<user_defined_attributes_table>>.
+{set:cellbgcolor:#FFFFFF}
 |===
 

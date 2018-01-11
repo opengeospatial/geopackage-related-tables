@@ -13,10 +13,10 @@
 ----
 CREATE TABLE 'gpkgext_relations' (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  base_table_name TEXT NOT NULL,
-  base_primary_column TEXT NOT NULL DEFAULT 'id',
-  attribute_table_name TEXT NOT NULL,
-  attribute_primary_column TEXT NOT NULL DEFAULT 'id',
+  geospatial_table_name TEXT NOT NULL,
+  geospatial_primary_column TEXT NOT NULL DEFAULT 'id',
+  attributes_table_name TEXT NOT NULL,
+  attributes_primary_column TEXT NOT NULL DEFAULT 'id',
   relation_name TEXT NOT NULL,
   mapping_table_name TEXT NOT NULL UNIQUE,
   cardinality TEXT NOT NULL CHECK( cardinality in ('many-to-many','many-to-one','one-to-many'))
@@ -32,8 +32,8 @@ CREATE TABLE 'gpkgext_relations' (
 [source,sql]
 ----
 CREATE TABLE 'sample_mapping_table' (
-  base_id INTEGER NOT NULL,
-  attribute_id INTEGER NOT NULL
+  geospatial_id INTEGER NOT NULL,
+  attributes_id INTEGER NOT NULL
  );
 ----
 
@@ -52,9 +52,9 @@ CREATE TABLE 'sample_feature_table' (
   real_attribute REAL,
   boolean_attribute BOOLEAN)
 ----
-This table is a modified version of http://www.geopackage.org/spec/#_sample_feature_table_informative[the informative example in the core document].
+This table is a modified version of http://www.geopackage.org/spec120/#_sample_feature_table_informative[the informative example in the core document]. The `raster_or_photo` column is removed with the intent of making the binary data available as per this extension.
 
-[[gpkg_extensions_sql]]
+[[gpkgext_user_defined_media_table_sql]]
 .Example User Defined Media Table Definition SQL (Informative)
 [cols=","]
 |=============
