@@ -1,12 +1,12 @@
 == Requirements (Normative)
 
-
 === Requirement Class 1 – Table Definitions
 include::requirements/requirements_class_Table_Definitions.adoc[]
 
-==== Extended Relations Table
+==== `gpkgext_relations`
 include::requirements/REQ001.adoc[]
 
+===== Table Definition
 [[gpkgext_relations_table]]
 .Extended Relations Table Definition
 [cols="10,5,40,5,5,5,5",options="header",]
@@ -22,6 +22,14 @@ include::requirements/REQ001.adoc[]
 |`cardinality`          |TEXT         |One of `one-to-many`, `many-to-one`, or `many-to-many`                |no   |         |    |no
 |=======================================================================
 
+===== Table Values
+include::requirements/REQ006.adoc[]
+
+include::requirements/REQ007.adoc[]
+
+include::requirements/REQ008.adoc[]
+
+
 [NOTE]
 ====
 The `cardinality` column is informational only. It should be populated during the data load process and updated by the GeoPackage client if needed. Export processes may use this column to determine the right way to export the data.
@@ -29,6 +37,7 @@ The `cardinality` column is informational only. It should be populated during th
 
 [[user_defined_mapping_table]]
 ==== User Defined Mapping Tables
+===== Table Definition
 include::requirements/REQ002.adoc[]
 
 [[gpkgext_user_defined_mapping_table]]
@@ -40,6 +49,27 @@ include::requirements/REQ002.adoc[]
 |`base_id`   | INTEGER     | The primary key value of the base table    |no   |         |    |no
 |`attribute_id` | INTEGER     | The primary key value of the attribute table  |no   |         |    |no
 |=================================================================
+
+===== Table Values
+include::requirements/REQ009.adoc[]
+
+==== `gpkg_extensions`
+===== Table Values 
+include::requirements/REQ004.adoc[]
+
+include::requirements/REQ005.adoc[]
+
+[[gpkg_extensions_records]]
+.Extensions Table Record
+[cols=",,,,",options="header",]
+|=======================================================================
+|table_name|column_name|extension_name|definition|scope
+|`gpkgext_relations`|null|`related_tables`|TBD|`read-write`
+|_name of actual <<user_defined_mapping_table,User Defined Mapping Table>>_|null|`related_tables`|TBD|`read-write`
+|=======================================================================
+
+//=== Requirement Class 2 – ???
+//include::requirements/requirements_class_Table_Values.adoc[]
 
 ==== User Defined Attributes (Media) Tables
 include::requirements/REQ003.adoc[]
@@ -54,32 +84,6 @@ include::requirements/REQ003.adoc[]
 |`content_type` |TEXT        |Mime-type of data         |no   |
 |=======================================================================
 
-=== Requirement Class 2 – Table Values
-include::requirements/requirements_class_Table_Values.adoc[]
-
-==== `gpkg_extensions`
-include::requirements/REQ004.adoc[]
-
-include::requirements/REQ005.adoc[]
-
-[[gpkg_extensions_records]]
-.Extensions Table Record
-[cols=",,,,",options="header",]
-|=======================================================================
-|table_name|column_name|extension_name|definition|scope
-|`gpkgext_relations`|null|`related_tables`|TBD|`read-write`
-|_name of actual <<user_defined_mapping_table,User Defined Mapping Table>>_|null|`related_tables`|TBD|`read-write`
-|=======================================================================
-
-==== `gpkgext_relations`
-include::requirements/REQ006.adoc[]
-
-include::requirements/REQ007.adoc[]
-
-include::requirements/REQ008.adoc[]
-
-==== User Defined Mapping Tables
-include::requirements/REQ009.adoc[]
 
 ////
 ==== Requirement 1

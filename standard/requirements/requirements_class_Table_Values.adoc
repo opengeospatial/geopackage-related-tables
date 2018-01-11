@@ -1,8 +1,0 @@
-[cols="1,4",width="90%"]
-|===
-2+|*Requirements Class : Table Values* {set:cellbgcolor:#CACCCE}
-2+|http://www.opengis.net/spec/gpkg-rt/1.0/table-values {set:cellbgcolor:#FFFFFF}
-|Target type |Token
-|Dependency |http://www.geopackage.org/spec120/#features
-|Dependency |http://www.geopackage.org/spec120/#attributes
-|===
