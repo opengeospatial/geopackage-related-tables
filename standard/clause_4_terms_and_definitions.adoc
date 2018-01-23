@@ -3,6 +3,12 @@ This document uses the terms defined in Sub-clause 5.3 of <<OWS_COMMON>>, which 
 
 For the purposes of this document, the following additional terms and definitions apply.
 
+=== *attributes data*
+Non-spatial tabular data that is designed to be joined with geospatial data for analysis. In a GeoPackage, attributes data is stored in attributes tables as per http://www.geopackage.org/spec/#attributes.
+
+=== *base data*
+Data that is linked in some way to related data (in other words, the _left_ side of the A->B relationship). In this extension, base data is stored in geospatial or attributes data tables.
+
 === *cardinality*
 A relationship between two entities `A` and `B`. For the purposes of this extension, `A` refers geospatial data and `B` refers to related data. 
 
@@ -20,7 +26,7 @@ A type of cardinality in which an element of `A` may be linked to zero or more e
 A type of cardinality in which an element of `A` is linked to one and only one element of `B`, but an element of `B` may be linked to zero or more elements of `A`. 
 
 === *related data*
-Data that is linked in some way to geospatial data. In this extension, related data is stored in a user-defined attributes table.
+Data that is linked to in some way to base data (in other words, the _right_ side of the A->B relationship). In this extension, related data is stored in a user-defined attributes table.
 
 === *user-defined attributes table*
 In this extension, a user-defined attributes table is a table that contains data that is related to existing geospatial data.

@@ -28,8 +28,8 @@ include::requirements/REQ003.adoc[]
 |=======================================================================
 |Column Name            |Column Type  |Column Description                                                    |Null |Default  |Key |Unique
 |`id`                   |INTEGER      |Autoincrement primary key                                             |no   |         |PK  |yes
-|`geospatial_table_name`   |TEXT         |Name of the table containing the geospatial data (e.g., features) to relate               |no   |         |    |no
-|`geospatial_primary_column`       |TEXT         |Name of the primary key column in `geospatial_table_name`                |no   | `id`        |    |no
+|`base_table_name`   |TEXT         |Name of the table containing the base data (e.g., features) to relate               |no   |         |    |no
+|`base_primary_column`       |TEXT         |Name of the primary key column in `base_table_name`                |no   | `id`        |    |no
 |`attributes_table_name` |TEXT         |Name of the table containing the attributes                           |no   |         |    |no
 |`attributes_primary_column`     |TEXT         |Name of the primary key column in `attributes_table_name`              |no   |  `id`       |    |no
 |`relation_name`        |TEXT         |Name of the relation                     |no   |         |    |no
@@ -66,7 +66,7 @@ include::requirements/REQ007.adoc[]
 
 |=================================================================
 |Column Name           | Column Type | Column Description                                     |Null |Default  |Key |Unique
-|`geospatial_id`   | INTEGER     | The primary key value of the geospatial table    |no   |         |    |no
+|`base_id`   | INTEGER     | The primary key value of the base data table    |no   |         |    |no
 |`attributes_id` | INTEGER     | The primary key value of the attributes table  |no   |         |    |no
 |=================================================================
 
