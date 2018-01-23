@@ -15,8 +15,8 @@ CREATE TABLE 'gpkgext_relations' (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   base_table_name TEXT NOT NULL,
   base_primary_column TEXT NOT NULL DEFAULT 'id',
-  attributes_table_name TEXT NOT NULL,
-  attributes_primary_column TEXT NOT NULL DEFAULT 'id',
+  related_table_name TEXT NOT NULL,
+  related_primary_column TEXT NOT NULL DEFAULT 'id',
   relation_name TEXT NOT NULL,
   mapping_table_name TEXT NOT NULL UNIQUE,
   cardinality TEXT NOT NULL CHECK( cardinality in ('many-to-many','many-to-one','one-to-many'))
@@ -33,7 +33,7 @@ CREATE TABLE 'gpkgext_relations' (
 ----
 CREATE TABLE 'sample_mapping_table' (
   base_id INTEGER NOT NULL,
-  attributes_id INTEGER NOT NULL
+  related_id INTEGER NOT NULL
  );
 ----
 
