@@ -18,8 +18,7 @@ CREATE TABLE 'gpkgext_relations' (
   attributes_table_name TEXT NOT NULL,
   attributes_primary_column TEXT NOT NULL DEFAULT 'id',
   relation_name TEXT NOT NULL,
-  mapping_table_name TEXT NOT NULL UNIQUE,
-  cardinality TEXT NOT NULL CHECK( cardinality in ('many-to-many','many-to-one','one-to-many'))
+  mapping_table_name TEXT NOT NULL UNIQUE
  );
 ----
 

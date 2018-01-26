@@ -34,7 +34,6 @@ include::requirements/REQ003.adoc[]
 |`attributes_primary_column`     |TEXT         |Name of the primary key column in `attributes_table_name`              |no   |  `id`       |    |no
 |`relation_name`        |TEXT         |Name of the relation                     |no   |         |    |no
 |`mapping_table_name`   |TEXT         |Name of a mapping table used to support many-to-many type mappings    |no   |         |    |yes
-|`cardinality`          |TEXT         |One of `one-to-many`, `many-to-one`, or `many-to-many`                |no   |         |    |no
 |=======================================================================
 
 ===== Table Values
@@ -48,12 +47,6 @@ See <<gpkg_features_sql>> for example SQL for creating a features table for use 
 include::requirements/REQ005.adoc[]
 
 include::requirements/REQ006.adoc[]
-
-
-[NOTE]
-====
-The `cardinality` column is informational only. It should be populated during the data load process and updated by the GeoPackage client if needed. Export processes may use this column to determine the right way to export the data.
-====
 
 [[user_defined_mapping_table]]
 ==== User-Defined Mapping Tables
@@ -82,7 +75,7 @@ include::requirements/REQ009.adoc[]
 
 [NOTE]
 ====
-A user-defined mapping table MAY contain no rows. 
+This specification makes no statement on the cardinality of a user-defined mapping table. It MAY contain no rows or have a one-to-many, many-to-one, or many-to-many relationship. While it is possible to enforce a one-to-many or many-to-one relationship by applying a UNIQUE constraint to the `attributes_id` or `base_id` respectively, this is NOT RECOMMENDED because the presence of these constraints is not exposed by SQLite in an easy-to-query manner. 
 ====
 
 [[user_defined_attributes_table]]

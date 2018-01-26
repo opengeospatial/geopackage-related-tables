@@ -16,8 +16,8 @@ Using the <<features_to_media>>,
 .gpkgext_relations table values
 [options="header"]
 |==============================================
-|base_table_name|base_column|attribute_table_name|attribute_column|relation_name|mapping_table_name|cardinality
-|features          |id            |media               |id              |media        |features_to_media|many-to-many
+|base_table_name|base_column|attribute_table_name|attribute_column|relation_name|mapping_table_name
+|features          |id            |media               |id              |media        |features_to_media
 |==============================================
 
 [[features]]
