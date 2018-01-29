@@ -33,7 +33,7 @@ include::requirements/REQ003.adoc[]
 |`related_table_name`   |TEXT         |Name of the table containing the related                              |no   |         |    |no
 |`related_primary_column`     |TEXT         |Name of the primary key column in `related_table_name`          |no   |  `id`   |    |no
 |`relation_name`        |TEXT         |Name of the relation                                                  |no   |         |    |no
-|`mapping_table_name`   |TEXT         |Name of a mapping table used to support many-to-many type mappings    |no   |         |    |yes
+|`mapping_table_name`   |TEXT         |Name of a mapping table    |no   |         |    |yes
 |=======================================================================
 
 ===== Table Values
