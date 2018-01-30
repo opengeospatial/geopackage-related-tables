@@ -16,7 +16,7 @@ ogcdoc, OGC document, GeoPackage, extension, related tables, multimedia
 
 [big]*iii.   Preface*
 
-The GeoPackage Related Tables Extension (RTE) defines the rules and requirements for creating relationships in a GeoPackage <<geopackage>> data store between geospatial data tables and other tables that contain or reference related content such as attributes or media. 
+The GeoPackage Related Tables Extension (RTE) defines the rules and requirements for creating relationships in a GeoPackage <<geopackage>> data store between geospatial or attributes data tables and other tables that contain or reference related content such as attributes or media. 
 Geospatial data tables (such as features or tiles tables) contain location information and/or geometries.
 Conceptually, this extension is similar to the OGC Table Joining Service Interface Standard <<OGC-TJS-IS>>.
 

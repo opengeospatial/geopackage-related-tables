@@ -1,10 +1,10 @@
 [[r4]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 4* {set:cellbgcolor:#CACCCE}|/req/table-defs/ger-geospatial +
+|*Requirement 4* {set:cellbgcolor:#CACCCE}|/req/table-defs/ger-base +
  +
 
-For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `geospatial_table_name` and that table SHALL have an entry in `gpkg_contents`.
+For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `base_table_name` and that table SHALL have an entry in `gpkg_contents`.
  {set:cellbgcolor:#FFFFFF}
 |===
 

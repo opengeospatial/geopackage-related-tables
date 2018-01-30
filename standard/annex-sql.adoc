@@ -13,13 +13,12 @@
 ----
 CREATE TABLE 'gpkgext_relations' (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  geospatial_table_name TEXT NOT NULL,
-  geospatial_primary_column TEXT NOT NULL DEFAULT 'id',
-  attributes_table_name TEXT NOT NULL,
-  attributes_primary_column TEXT NOT NULL DEFAULT 'id',
+  base_table_name TEXT NOT NULL,
+  base_primary_column TEXT NOT NULL DEFAULT 'id',
+  related_table_name TEXT NOT NULL,
+  related_primary_column TEXT NOT NULL DEFAULT 'id',
   relation_name TEXT NOT NULL,
-  mapping_table_name TEXT NOT NULL UNIQUE,
-  cardinality TEXT NOT NULL CHECK( cardinality in ('many-to-many','many-to-one','one-to-many'))
+  mapping_table_name TEXT NOT NULL UNIQUE
  );
 ----
 
@@ -32,8 +31,8 @@ CREATE TABLE 'gpkgext_relations' (
 [source,sql]
 ----
 CREATE TABLE 'sample_mapping_table' (
-  geospatial_id INTEGER NOT NULL,
-  attributes_id INTEGER NOT NULL
+  base_id INTEGER NOT NULL,
+  related_id INTEGER NOT NULL
  );
 ----
 

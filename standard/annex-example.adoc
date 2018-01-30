@@ -16,8 +16,8 @@ Using the <<features_to_media>>,
 .gpkgext_relations table values
 [options="header"]
 |==============================================
-|base_table_name|base_column|attribute_table_name|attribute_column|relation_name|mapping_table_name|cardinality
-|features          |id            |media               |id              |media        |features_to_media|many-to-many
+|base_table_name|base_column|related_table_name|related_column|relation_name|mapping_table_name
+|features          |id            |media               |id              |media        |features_to_media
 |==============================================
 
 [[features]]
@@ -31,8 +31,8 @@ Using the <<features_to_media>>,
 |4|<BLOB>
 |=======================================================================
 
-[[attributes]]
-.attributes table values
+[[media]]
+.media table values
 [width="80%",options="header"]
 |=======================================================================
 |id|data|content_type
@@ -42,10 +42,10 @@ Using the <<features_to_media>>,
 |=======================================================================
 
 [[features_to_media]]
-.features_to_attributes table
+.features_to_media table
 [options="header"]
 |==============================================
-|base_id|attribute_id
+|base_id|related_id
 |4  | 17
 |4  | 19
 |3  | 18
@@ -54,4 +54,4 @@ Using the <<features_to_media>>,
 |1  | 17
 |==============================================
 
-The <<features_to_media>> relates the id columns between the features table and the media table.
+The <<features_to_media>> table relates the `id` columns between the features table and the media table.
