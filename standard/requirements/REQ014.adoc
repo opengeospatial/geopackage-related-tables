@@ -4,6 +4,6 @@
 |*Requirement 14* {set:cellbgcolor:#CACCCE}|/req/simpleattr/table_def +
  +
 
-A user-defined simple attribute table or view SHALL contain the primary key column and at least one other column as defined in <<gpkg_user_defined_simpleattr_table>>. A user-defined simple attribute table shall not contain BLOB data.
+A user-defined simple attribute table or view SHALL contain the primary key column and at least one other column as defined in <<gpkg_user_defined_simpleattr_table>>. A user-defined simple attribute table SHALL only contain TEXT, INTEGER, or REAL data (or synonyms thereof) and SHALL NOT contain BLOB or GEOMETRY data.
 {set:cellbgcolor:#FFFFFF}
 |===
