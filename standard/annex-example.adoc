@@ -20,6 +20,15 @@ Using the <<features_to_media>>,
 |features          |id            |media               |id              |media        |features_to_media
 |==============================================
 
+The following SQL query will reveal this information:
+
+    select base_table_name, 
+        base_primary_column, 
+        related_table_name, 
+        related_primary_column, 
+        mapping_table_name 
+    from gpkgext_relations;
+
 [[features]]
 .features table values
 [width="50%",options="header"]
@@ -55,3 +64,10 @@ Using the <<features_to_media>>,
 |==============================================
 
 The <<features_to_media>> table relates the `id` columns between the features table and the media table.
+
+The following SQL query will reveal this information:
+
+    select features.id, features_to_media.related_id 
+        from features, features_to_media 
+    where features.id=features_to_media.base_id;
+    
