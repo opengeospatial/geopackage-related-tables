@@ -66,3 +66,18 @@ CREATE TABLE 'sample_media' (
   data BLOB NOT NULL,
   content_type TEXT NOT NULL)
 ----
+
+[[gpkgext_user_defined_simpleattr_table_sql]]
+.Example User Defined Simple Attribute Table Definition SQL (Informative)
+[cols=","]
+|=============
+|
+|=============
+[source,sql]
+----
+CREATE TABLE 'sample_attributes' (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  label TEXT NOT NULL,
+  description TEXT NOT NULL,
+  arisings INTEGER NOT NULL)
+----
