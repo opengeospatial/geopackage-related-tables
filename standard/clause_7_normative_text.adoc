@@ -68,6 +68,7 @@ include::requirements/REQ007.adoc[]
 [NOTE]
 ====
 See <<gpkgext_user_defined_mapping_table_sql>> for example SQL for defining a user-defined mapping table.
+A user-defined mapping table MAY also contain other columns not listed here.
 ====
 
 ===== Table Values

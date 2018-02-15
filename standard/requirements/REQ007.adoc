@@ -4,6 +4,7 @@
 |*Requirement 7* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt +
  +
 
-A user-defined mapping table or view SHALL conform to <<gpkgext_user_defined_mapping_table>>.
+A user-defined mapping table or view SHALL contain all of the columns described in <<gpkgext_user_defined_mapping_table>>.
+
 {set:cellbgcolor:#FFFFFF}
 |===
