@@ -1,9 +1,9 @@
 [[r11]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 11* {set:cellbgcolor:#CACCCE}|/req/media/udmt +
+|*Requirement 11* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt_related +
  +
 
-A user-defined related data table or view SHALL be a user-defined media table or view if the row in `gpkgext_relations` with a corresponding `related_table_name` has a `relation_name` of "media".
+For each row of a user-defined mapping table, the `related_id` column SHALL correlate to the primary key of the corresponding related data table (as identified by the `related_primary_column` of the associated row in `gpkgext_relations`).
  {set:cellbgcolor:#FFFFFF}
 |===
