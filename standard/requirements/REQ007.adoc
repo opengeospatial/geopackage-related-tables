@@ -1,15 +1,9 @@
 [[r7]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 7* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt +
+|*Requirement 7* {set:cellbgcolor:#CACCCE}|/req/table-defs/ger_udmt +
  +
 
-A user-defined mapping table or view SHALL contain all of the columns described in <<gpkgext_user_defined_mapping_table>>.
-
-{set:cellbgcolor:#FFFFFF}
+For each row in `gpkgext_relations`, the `mapping_table_name` column SHALL contain the name of a user-defined mapping table or view as described by <<user_defined_mapping_table>>.
+ {set:cellbgcolor:#FFFFFF}
 |===
-
-[NOTE]
-====
-A user-defined mapping table MAY contain no rows. This is intended to support declaring a conceptual relationship where no instances of that relationship currently exist in the GeoPackage (e.g. no related data has been added, or all applicable data has been deleted).
-====

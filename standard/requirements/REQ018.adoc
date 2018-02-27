@@ -1,0 +1,9 @@
+[[r18]]
+[width="90%",cols="2,6"]
+|===
+|*Requirement 18* {set:cellbgcolor:#CACCCE}|/req/relatedfeat/table_def +
+ +
+
+A user-defined related features table or view SHALL be a vector feature user data table as defined in http://www.geopackage.org/spec/#feature_user_tables[the OGC® GeoPackage Encoding Standard].
+{set:cellbgcolor:#FFFFFF}
+|===

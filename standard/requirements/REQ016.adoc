@@ -1,9 +1,9 @@
 [[r16]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 16* {set:cellbgcolor:#CACCCE}|/req/relatedfeat/table_def +
+|*Requirement 16* {set:cellbgcolor:#CACCCE}|/req/simpleattr/table_def +
  +
 
-A user-defined related features table or view SHALL be a vector feature user data table as defined in http://www.geopackage.org/spec/#feature_user_tables[the OGC® GeoPackage Encoding Standard].
+A user-defined simple attribute table or view SHALL contain the primary key column and at least one other column as defined in <<gpkg_user_defined_simpleattr_table>>. A user-defined simple attribute table SHALL only contain data belonging to the TEXT, INTEGER, or REAL storage classes and SHALL NOT contain NULL or BLOB storage classes (e.g., GEOMETRY).
 {set:cellbgcolor:#FFFFFF}
 |===

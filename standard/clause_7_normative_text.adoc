@@ -9,6 +9,8 @@ include::requirements/REQ001.adoc[]
 
 include::requirements/REQ002.adoc[]
 
+include::requirements/REQ003.adoc[]
+
 [[gpkg_extensions_records]]
 .Extensions Table Record
 [cols=",,,,",options="header",]
@@ -19,7 +21,7 @@ include::requirements/REQ002.adoc[]
 |=======================================================================
 
 ==== `gpkgext_relations`
-include::requirements/REQ003.adoc[]
+include::requirements/REQ004.adoc[]
 
 ===== Table Definition
 [[gpkgext_relations_table]]
@@ -37,23 +39,23 @@ include::requirements/REQ003.adoc[]
 |=======================================================================
 
 ===== Table Values
-include::requirements/REQ004.adoc[]
+include::requirements/REQ005.adoc[]
 
 [NOTE]
 ====
 See <<gpkg_features_sql>> for example SQL for creating a features table for use with this extension.
 ====
 
-include::requirements/REQ005.adoc[]
-
 include::requirements/REQ006.adoc[]
 
-include::requirements/REQ006-5.adoc[]
+include::requirements/REQ007.adoc[]
+
+include::requirements/REQ008.adoc[]
 
 [[user_defined_mapping_table]]
 ==== User-Defined Mapping Tables
 ===== Table Definition
-include::requirements/REQ007.adoc[]
+include::requirements/REQ008.adoc[]
 
 [[gpkgext_user_defined_mapping_table]]
 .User-Defined Mapping Table Definition
@@ -72,9 +74,9 @@ A user-defined mapping table MAY also contain other columns not listed here.
 ====
 
 ===== Table Values
-include::requirements/REQ008.adoc[]
+include::requirements/REQ010.adoc[]
 
-include::requirements/REQ009.adoc[]
+include::requirements/REQ011.adoc[]
 
 [NOTE]
 ====
@@ -84,16 +86,16 @@ This specification makes no statement on the cardinality of a user-defined mappi
 [[user_defined_related_data_table]]
 ==== User-Defined Related Data Tables
 ===== Table Definition
-include::requirements/REQ010.adoc[]
+include::requirements/REQ012.adoc[]
 
 === Media Requirement Class
 include::requirements/requirements_class_Media.adoc[]
 
 ==== User-Defined Media Tables
 ===== Table Definition
-include::requirements/REQ011.adoc[]
+include::requirements/REQ013.adoc[]
 
-include::requirements/REQ012.adoc[]
+include::requirements/REQ014.adoc[]
 
 [[gpkg_user_defined_media_table]]
 .User-Defined Media Table Definition
@@ -117,9 +119,9 @@ include::requirements/requirements_class_SimpleAttributes.adoc[]
 
 ==== User-Defined Simple Attribute Tables
 ===== Table Definition
-include::requirements/REQ013.adoc[]
+include::requirements/REQ015.adoc[]
 
-include::requirements/REQ014.adoc[]
+include::requirements/REQ016.adoc[]
 
 [[gpkg_user_defined_simpleattr_table]]
 .User-Defined Simple Attributes Table Definition
@@ -141,25 +143,6 @@ include::requirements/requirements_class_RelatedFeatures.adoc[]
 
 ==== User-Defined Related Features Tables
 ===== Table Definition
-include::requirements/REQ015.adoc[]
+include::requirements/REQ017.adoc[]
 
-include::requirements/REQ016.adoc[]
-
-
-////
-==== Requirement 1
-Paragraph - intro text for the requirement.
-
-Use the following table for Requirements, number sequentially.
-
-
-Dictionary tables for requirements can be added as necessary. Modify the following example as needed.
-
-[width="90%",options="header"]
-|===
-|Names |Definition |Data types and values |Multiplicity and use
-|name 1 |definition of name 1 |float |One or more (mandatory)
-|name 2 |definition of name 2 |character string type, not empty |Zero or one (optional)
-|name 3 |definition of name 3 |GML:: Point PropertyType |One (mandatory)
-|===
-////
+include::requirements/REQ018.adoc[]

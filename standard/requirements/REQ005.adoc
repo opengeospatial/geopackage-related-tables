@@ -1,10 +1,10 @@
 [[r5]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 5* {set:cellbgcolor:#CACCCE}|/req/table-defs/ger_related +
+|*Requirement 5* {set:cellbgcolor:#CACCCE}|/req/table-defs/ger-base +
  +
 
-For each row in `gpkgext_relations`, the `related_table_name` column SHALL contain the name of a user-defined attributes table as described by <<user_defined_related_data_table>>.
-{set:cellbgcolor:#FFFFFF}
+For each row in `gpkgext_relations`, there SHALL be a table or view of the name referenced in `base_table_name` and that table SHALL have an entry in `gpkg_contents`.
+ {set:cellbgcolor:#FFFFFF}
 |===
 
