@@ -10,6 +10,6 @@ A GeoPackage that contains a row in the `gpkg_extensions` table for `gpkgext_rel
 
 [WARNING]
 ====
-The intent of this requirement is that a GeoPackage shall not declare the Related Tables Extension unless it is used within the GeoPackage. As a consequence, if all rows are removed from  `gpkgext_relations`, that table must be dropped and all references to the extension must be removed from `gpkg_extensions` as well. However because a user defined mapping table may be empty, there may not yet be any related data in the GeoPackage.
+The intent of this requirement is that a GeoPackage shall not declare the Related Tables Extension unless it is used within the GeoPackage. As a consequence, if all rows are removed from  `gpkgext_relations`, that table must be dropped and all references to the extension must be removed from `gpkg_extensions` as well. However, because a related tables schema may be established without any data, empty user-defined mapping tables and/or related data tables are permitted.
 ====
 
