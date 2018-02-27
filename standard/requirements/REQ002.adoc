@@ -10,5 +10,5 @@ A GeoPackage that contains a row in the `gpkg_extensions` table for `gpkgext_rel
 
 [NOTE]
 ====
-The intent of this requirement is that a GeoPackage shall not declare the Related Tables Extension unless it is used within the GeoPackage. However because a user defined mapping table may be empty, there may not yet be any related data in the GeoPackage.
+The intent of this requirement is that a GeoPackage shall not declare the Related Tables Extension unless it is used within the GeoPackage. However because a user defined mapping table may be empty, there may not yet be any related data in the GeoPackage. As a consequence, if all related table relationships are removed, the extension must be removed from `gpkg_extensions` as well.
 ====
