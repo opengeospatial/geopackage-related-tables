@@ -55,7 +55,7 @@ include::requirements/REQ008.adoc[]
 [[user_defined_mapping_table]]
 ==== User-Defined Mapping Tables
 ===== Table Definition
-include::requirements/REQ008.adoc[]
+include::requirements/REQ009.adoc[]
 
 [[gpkgext_user_defined_mapping_table]]
 .User-Defined Mapping Table Definition
