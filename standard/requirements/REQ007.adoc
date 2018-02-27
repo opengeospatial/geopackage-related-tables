@@ -8,3 +8,8 @@ A user-defined mapping table or view SHALL contain all of the columns described 
 
 {set:cellbgcolor:#FFFFFF}
 |===
+
+[NOTE]
+====
+A user-defined mapping table MAY contain no rows. This is intended to support declaring a conceptual relationship where no instances of that relationship currently exist in the GeoPackage (e.g. no related data has been added, or all applicable data has been deleted).
+====
