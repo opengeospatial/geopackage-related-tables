@@ -110,6 +110,9 @@ include::annex-ats.adoc[]
 include::annex-example.adoc[]
 
 <<<
+include::annex-profile.adoc[]
+
+<<<
 include::annex-sql.adoc[]
 
 <<<
