@@ -1,6 +1,6 @@
 [appendix]
 :appendix-caption: Annex
-== Example Informative
+== Example (Informative)
 
 This example illustrates support for many-to-many relationships but the concept may be used in a degenerative way to support one-to-many or many-to-one relationships.
 The content of the `gpkgext_relations` includes a <<features_to_media>> that relates the <<features>> and <<media>> using their respective `id` columns.
