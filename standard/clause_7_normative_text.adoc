@@ -127,7 +127,7 @@ This requirements class allows you to relate to sets of tabular text or numeric 
 ===== Table Definition
 include::requirements/simpleattr-udat.adoc[]
 
-include::requirements/simpleattr_table_def.adoc[]
+include::requirements/simpleattr-table_def.adoc[]
 
 [[gpkg_user_defined_simpleattr_table]]
 .User-Defined Simple Attributes Table Definition
