@@ -85,17 +85,22 @@ This specification makes no statement on the cardinality of a user-defined mappi
 
 [[user_defined_related_data_table]]
 ==== User-Defined Related Data Tables
-===== Table Definition
-include::requirements/REQ012.adoc[]
+There are no explicit requirements for a generic user-defined related data table. However, interoperability is improved if a specific requirements class is used. The following subsections describe three requirements classes.
 
-=== Media Requirement Class
+* <<media_rc>> (for multimedia files)
+* <<sa_rc>> (for text and numeric data)
+* <<f_rc>> (for features)
+
+[[media_rc]]
+=== Media Requirements Class
 include::requirements/requirements_class_Media.adoc[]
+This requirements class allows you to relate to multimedia files such as pictures and videos. For example, you could relate building features with pictures or videos taken of those areas.
 
 ==== User-Defined Media Tables
 ===== Table Definition
-include::requirements/REQ013.adoc[]
+include::requirements/media-udmt.adoc[]
 
-include::requirements/REQ014.adoc[]
+include::requirements/media-table_def.adoc[]
 
 [[gpkg_user_defined_media_table]]
 .User-Defined Media Table Definition
@@ -113,15 +118,16 @@ See <<gpkgext_user_defined_media_table_sql>> for example SQL for defining a user
 A user-defined media table MAY also contain other columns not listed here.
 ====
 
-
-=== Simple Attributes Requirement Class
+[[sa_rc]]
+=== Simple Attributes Requirements Class
 include::requirements/requirements_class_SimpleAttributes.adoc[]
+This requirements class allows you to relate to sets of tabular text or numeric data. For example, you could relate land parcels with statistical information that is collected over different boundaries.
 
 ==== User-Defined Simple Attribute Tables
 ===== Table Definition
-include::requirements/REQ015.adoc[]
+include::requirements/simpleattr-udat.adoc[]
 
-include::requirements/REQ016.adoc[]
+include::requirements/simpleattr_table_def.adoc[]
 
 [[gpkg_user_defined_simpleattr_table]]
 .User-Defined Simple Attributes Table Definition
@@ -138,11 +144,13 @@ include::requirements/REQ016.adoc[]
 See <<gpkgext_user_defined_simpleattr_table_sql>> for example SQL for defining a user-defined simple attributes table.
 ====
 
-=== Related Features Requirement Class
+[[f_rc]]
+=== Related Features Requirements Class
 include::requirements/requirements_class_RelatedFeatures.adoc[]
+This requirements class allows you to link features with other features. For example, you could link road features with related pylon features.
 
 ==== User-Defined Related Features Tables
 ===== Table Definition
-include::requirements/REQ017.adoc[]
+include::requirements/relatedfeat-udft.adoc[]
 
-include::requirements/REQ018.adoc[]
+include::requirements/relatedfeat-table_def.adoc[]
