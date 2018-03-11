@@ -25,7 +25,7 @@ Extension not in use if count is empty
 |Requirement: |/req/table-defs/extensions-ger
 |Test purpose: | Verify that the `gpkg_extensions` table contains the required `gpkgext_relations` table.
 |Test method: |
-`SELECT * FROM gpkg_extensions WHERE table_name = 'gpkgext_relations')`
+`SELECT * FROM gpkg_extensions WHERE table_name = 'gpkgext_relations'`
 
 Fail if number of rows returned is not 1.
 
