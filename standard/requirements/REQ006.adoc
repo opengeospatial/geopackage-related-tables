@@ -7,12 +7,3 @@
 For each row in `gpkgext_relations`, there SHALL be a table of the name referenced in `related_table_name` and that table SHALL have an entry in `gpkg_contents`.
 {set:cellbgcolor:#FFFFFF}
 |===
-
-[width="90%",cols="2,6"]
-|===
-|*Requirement 6A* {set:cellbgcolor:#CACCCE}|/req/table-defs/ger_related_udrdt +
- +
-
-For each row in `gpkgext_relations`, the `related_table_name` column SHALL contain the name of a user-defined related data table as described by <<user_defined_related_data_table>>.
-{set:cellbgcolor:#FFFFFF}
-|===
