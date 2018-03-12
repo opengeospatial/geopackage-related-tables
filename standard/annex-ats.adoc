@@ -40,7 +40,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 |Requirement: |/req/table-defs/extensions-gerr
 |Test purpose: | Verify that the `gpkg_extensions` table contains at least one user defined mapping table.
 |Test method: |
-1. `SELECT table_name FROM gpkg_extensions WHERE (extension_name IN ('related_table', 'gpkg_related_tables') AND table_name != 'gpkgext_relations')`
+1. `SELECT table_name FROM gpkg_extensions WHERE (extension_name IN ('related_tables', 'gpkg_related_tables') AND table_name != 'gpkgext_relations')`
 
 2. Fail if number of rows returned is 0.
 
