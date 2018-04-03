@@ -267,3 +267,110 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 
 4. Pass if no fails.
 |===
+
+==== Requirement 12
+
+[cols="20h,80d",width="100%"]
+|===
+|Test id: |/conf/media/udmt
+|Requirement: |/req/media/udmt
+|Test purpose: | Verify whether the requirements class applies for user-defined media tables 
+|Test method: | `SELECT COUNT(*) FROM gpkgext_relations WHERE relation_name = 'media'`
+
+Requirement class is not in use if count is zero
+
+|===
+
+==== Requirement 13
+
+[cols="20h,80d",width="100%"]
+|===
+|Test id: |/conf/media/table_def
+|Requirement: |/req/media/table_def
+|Test purpose: | Verify that the user-defined media tables have the correct structure
+|Test method: | 
+1. `SELECT related_table_name FROM gpkgext_relations WHERE relation_name = 'media'`
+
+2. For each related_table_name row returned in Step 1:
+
+- `PRAGMA table_info({related_table_name})`
+
+- Fail if returns an empty result set.
+
+- Fail if the column names, types, nullability, default values, primary key, and unique key constraints do match all of those in the contents of [gpkg_user_defined_media_table]. Additional columns, column order, check constraints, trigger definitions, and other column definitions in the returned sql are irrelevant.
+
+3. Pass if no fails.
+
+|===
+
+==== Requirement 14
+
+[cols="20h,80d",width="100%"]
+|===
+|Test id: |/conf/simpleattr/udat
+|Requirement: |/req/simpleattr/udat
+|Test purpose: | Verify whether the requirements class applies for user-defined simple attributes tables
+|Test method: | `SELECT COUNT(*) FROM gpkgext_relations WHERE relation_name = 'simple_attributes'`
+
+Requirement class is not in use if count is zero
+
+|===
+
+==== Requirement 15
+
+[cols="20h,80d",width="100%"]
+|===
+|Test id: |/conf/simpleattr/table_def
+|Requirement: |/req/simpleattr/table_def
+|Test purpose: | Verify that the user-defined simple attribute tables have the correct structure
+|Test method: |
+1. `SELECT related_table_name FROM gpkgext_relations WHERE relation_name = 'simple_attributes'`
+
+2. For each related_table_name row returned in Step 1:
+
+- `PRAGMA table_info({related_table_name})`
+
+- Fail if returns an empty result set.
+
+- Fail if the column names, types, nullability, default values, primary key, and unique key constraints do match all of those in the contents of [gpkg_user_defined_simpleattr_table]. 
+
+- Fail if `Column Type` includes storage classes other than `TEXT`, `INTEGER`, or `REAL`.
+
+3. Pass if no fails.
+
+|===
+
+==== Requirement 16
+
+[cols="20h,80d",width="100%"]
+|===
+|Test id: |/conf/relatedfeat/udat
+|Requirement: |/req/relatedfeat/udat
+|Test purpose: | Verify whether the requirements class applies for user-defined features tables
+|Test method: | `SELECT COUNT(*) FROM gpkgext_relations WHERE relation_name = 'features'`
+
+Requirement class is not in use if count is zero
+
+|===
+
+==== Requirement 17
+
+[cols="20h,80d",width="100%"]
+|===
+|Test id: |/conf/relatedfeat/table_def
+|Requirement: |/req/relatedfeat/table_def
+|Test purpose: | Verify that the user-defined related features tables have the correct structure
+|Test method: |
+1. `SELECT related_table_name FROM gpkgext_relations WHERE relation_name = 'features'`
+
+2. For each related_table_name row returned in Step 1:
+
+- `PRAGMA table_info({related_table_name})`
+
+- Fail if returns an empty result set.
+
+- Fail if the column names, types, nullability, default values, primary key, and unique key constraints do match all of those in the contents of [http://www.geopackage.org/spec/#feature_user_tables]. 
+
+3. Pass if no fails.
+
+|===
