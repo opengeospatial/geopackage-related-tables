@@ -297,7 +297,7 @@ Requirement class is not in use if count is zero
 
 - Fail if returns an empty result set.
 
-- Fail if the column names, types, nullability, default values, primary key, and unique key constraints do match all of those in the contents of [gpkg_user_defined_media_table]. Additional columns, column order, check constraints, trigger definitions, and other column definitions in the returned sql are irrelevant.
+- Fail if the column names, types, nullability, default values, primary key, and unique key constraints do match all of those in the contents of <<gpkg_user_defined_media_table>>. Additional columns, column order, check constraints, trigger definitions, and other column definitions in the returned sql are irrelevant.
 
 3. Pass if no fails.
 
@@ -332,7 +332,7 @@ Requirement class is not in use if count is zero
 
 - Fail if returns an empty result set.
 
-- Fail if the column names, types, nullability, default values, primary key, and unique key constraints do match all of those in the contents of [gpkg_user_defined_simpleattr_table]. 
+- Fail if the column names, types, nullability, default values, primary key, and unique key constraints do match all of those in the contents of <<gpkg_user_defined_simpleattr_table>>. 
 
 - Fail if `Column Type` includes storage classes other than `TEXT`, `INTEGER`, or `REAL`.
 
