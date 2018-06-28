@@ -32,9 +32,9 @@ include::requirements/REQ004.adoc[]
 |`id`                   |INTEGER      |Autoincrement primary key                                             |no   |         |PK  |yes
 |`base_table_name`      |TEXT         |Name of the table containing the base data (e.g., features) to relate |no   |         |    |no
 |`base_primary_column`  |TEXT         |Name of the primary key column in `base_table_name`                   |no   | `id`    |    |no
-|`related_table_name`   |TEXT         |Name of the table containing the related                              |no   |         |    |no
+|`related_table_name`   |TEXT         |Name of the table containing the related content                      |no   |         |    |no
 |`related_primary_column`     |TEXT         |Name of the primary key column in `related_table_name`          |no   |  `id`   |    |no
-|`relation_name`        |TEXT         |Name of the relation                                                  |no   |         |    |no
+|`relation_name`        |TEXT         |Name (profile) of the relationship                                    |no   |         |    |no
 |`mapping_table_name`   |TEXT         |Name of a mapping table    |no   |         |    |yes
 |=======================================================================
 
