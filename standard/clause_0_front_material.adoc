@@ -49,6 +49,8 @@ The following organizations submitted this Document to the Open Geospatial Conso
 
 - Image Matters LLC
 - Compusult
+- Radiant Solutions
+- SOFWERX
 
 [big]*v.     Submitters*
 
@@ -59,4 +61,8 @@ All questions regarding this submission should be directed to the editor or the 
 |*Name* |*Affiliation*
 |Rob Cass |Compusult
 |Jeff Yutzler |Image Matters
+|Tracey Birch   |SOFWERX
+|Jason MacDonald | Compusult
+|Ashley Antonides | Radiant Solutions
+|Brad Hards | --
 |===================================
