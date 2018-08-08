@@ -1,7 +1,7 @@
 [[r2]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 2* {set:cellbgcolor:#CACCCE}|/req/table-defs/extensions-gerr +
+|*Requirement 2 – gpkgext_relations Row* {set:cellbgcolor:#CACCCE}|/req/table-defs/extensions-gerr +
  +
 
 A GeoPackage that contains a row in the `gpkg_extensions` table for `gpkgext_relations` SHALL contain at least one related table relationship.

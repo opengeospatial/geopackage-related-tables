@@ -7,11 +7,11 @@ Ensure that there is a conformance class for each requirements class and a test 
 
 === Common Requirements
 
-==== Requirement 1
+==== <<r1,gpkg_extensions Row>>
 [cols="20h,80d",width="100%"]
 |===
 |Test id: |/conf/table-defs/applicability
-|Requirement: |/req/table-defs/extensions-ger
+|Requirement: | /req/table-defs/extensions-ger
 |Test purpose: | Verify whether the Related Tables Extension is applicable.
 |Test method: |
 `SELECT COUNT(*) FROM gpkg_extensions WHERE extension_name IN ('related_tables', 'gpkg_related_tables')`
@@ -32,7 +32,7 @@ Fail if number of rows returned is not 1.
 Pass if results match required content from <<gpkg_extensions_records>>, else Fail.
 |===
 
-==== Requirement 2
+==== <<r2,gpkgext_relations Row>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -54,7 +54,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 |===
 
 
-==== Requirement 3
+==== <<r3,gpkg_extensions User Defined Mapping Table Rows>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -72,7 +72,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 |===
 
 
-==== Requirement 4
+==== <<r4,gpkgext_relations Table>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -90,7 +90,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 |===
 
 
-==== Requirement 5
+==== <<r5,gpkgext_relations Base Table>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -131,7 +131,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 4. Pass if no fails.
 |===
 
-==== Requirement 6
+==== <<r6,gpkgext_relations Related Table>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -173,7 +173,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 |===
 
 
-==== Requirement 7
+==== <<r7,gpkgext_relations User Defined Mapping Table>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -195,7 +195,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 |===
 
 
-==== Requirement 8
+==== <<r8,gpkgext_relations Relation Name>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -209,7 +209,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 |===
 
 
-==== Requirement 9
+==== <<r9,User Defined Mapping Table>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -233,7 +233,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 |===
 
 
-==== Requirement 10
+==== <<r10,User Defined Mapping Table Base ID>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -251,7 +251,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 |===
 
 
-==== Requirement 11
+==== <<r11,User Defined Mapping Table Related ID>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -268,7 +268,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 4. Pass if no fails.
 |===
 
-==== Requirement 12
+==== <<r12,Media Relation Name>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -281,7 +281,7 @@ Requirement class is not in use if count is zero
 
 |===
 
-==== Requirement 13
+==== <<r13,Media Table Definition>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -303,7 +303,7 @@ Requirement class is not in use if count is zero
 
 |===
 
-==== Requirement 14
+==== <<r14,Simple Attributes Relation Name>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -316,7 +316,7 @@ Requirement class is not in use if count is zero
 
 |===
 
-==== Requirement 15
+==== <<r15,Simple Attributes Table Definition>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -340,7 +340,7 @@ Requirement class is not in use if count is zero
 
 |===
 
-==== Requirement 16
+==== <<r16,Features Relation Name>>
 
 [cols="20h,80d",width="100%"]
 |===
@@ -353,7 +353,7 @@ Requirement class is not in use if count is zero
 
 |===
 
-==== Requirement 17
+==== <<r17,Features Table Definition>>
 
 [cols="20h,80d",width="100%"]
 |===
