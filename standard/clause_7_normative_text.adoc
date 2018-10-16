@@ -70,7 +70,7 @@ include::requirements/REQ009.adoc[]
 [NOTE]
 ====
 See <<gpkgext_user_defined_mapping_table_sql>> for example SQL for defining a user-defined mapping table.
-A user-defined mapping table MAY also contain other columns not listed here.
+A user-defined mapping table MAY be implemented as a GPKG http://www.geopackage.org/spec/#attributes[attributes] table type, and MAY contain other columns not listed here.
 ====
 
 ===== Table Values
