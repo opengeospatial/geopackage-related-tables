@@ -2,7 +2,7 @@
 == Design (Informative)
 
 === Overview ===
-The core of the Related Tables Extension is a mapping between existing table types defined by GPKG 1.2 - http://www.geopackage.org/spec/#features[features], http://www.geopackage.org/spec/#tiles[tiles] and http://www.geopackage.org/spec/#attributes[attributes]. The mapping is defined by a new kind of table defined by the Related Tables Extension. The mapping table links related rows in those tables of those types by reference to their primary keys. For example, to link a row in Table A to a row in Table B, the mapping table includes a row that has two values - the primary key of the row from Table A, and the primary key of the row from Table B.
+The core of the Related Tables Extension is a mapping between existing table types defined by GPKG 1.2 - http://www.geopackage.org/spec/#features[features], http://www.geopackage.org/spec/#tiles[tiles], and http://www.geopackage.org/spec/#attributes[attributes]. The mapping is defined by a new kind of table defined by the Related Tables Extension. The mapping table links related rows in those tables of those types by reference to their primary keys. For example, to link a row in Table A to a row in Table B, the mapping table includes a row that has two values - the primary key of the row from Table A, and the primary key of the row from Table B.
 
 The mapping table allows many-to-many relationships. For example, to relate another row in Table B to the same row in Table A, the mapping table would simply include another row with the appropriate primary keys. See <<img_relatedtablesconcept>>.
 
@@ -10,11 +10,13 @@ The mapping table allows many-to-many relationships. For example, to relate anot
 .Related Tables concept
 image::images/RelatedTablesConcept.png[width=800,align="center"]
 
-Mapping tables are unique to each pair of tables. The appropriate mapping table for each table pair (if any) is identified in a new table `gpkgext_relations`, which also specifies the name of the primary key column and the type of related data. This version of the Related Tables Extension supports three types of related data, which are separate conformance classes:
+Mapping tables are unique to each pair of tables. The appropriate mapping table for each table pair (if any) is identified in a new table `gpkgext_relations`, which also specifies the name of the primary key column and the type of related data. This version of the Related Tables Extension supports five types of related data, which are separate conformance classes:
 
  * media
  * simple attributes
  * features
+ * attributes
+ * tiles
 
 The relationships can be considered directional, in that they relate primary keys of two tables in terms of base (the "left" or "from" side of the mapping) and related (the "right" or "to" side of the mapping). Since the related tables are valid GPKG 1.2 table types (potentially with some additional constraints), they can form the base side of another mapping. This allows chaining (directed graph) of relationships as appropriate to represent the modelled data. See <<img_related_tables_uml>>.
 
