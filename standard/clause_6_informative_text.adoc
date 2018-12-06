@@ -59,6 +59,17 @@ The Features conformance class is used for related tables that are http://www.ge
 An example of this is linking the location of a condominium (town house) or apartment with the locations of associated parking places or individual garden plots.
 
 
+==== Attributes
+
+The Attributes conformance class is used for related tables that comply with the GPKG http://www.geopackage.org/spec/#attributes[attributes] table type. This is intended to support additional relationships to data which may already be stored as GPKG metadata.
+
+As with the Simple Attributes conformance class, only two columns are required in the related attributes table - the primary key, and one other column. The Related Tables Extension does not constrain or codify what additional columns can be. Unlike a Simple Attributes table, an Attributes table may include all data types allowed in a GPKG http://www.geopackage.org/spec/#attributes[attributes] metadata table (e.g. GEOMETRY and BLOB data types).
+
+==== Tiles
+
+The Tiles conformance class is used for related tables that are GPKG http://www.geopackage.org/spec/#tiles[tiles] tables, specifically http://www.geopackage.org/spec/#tiles_user_tables[tile pyramid user data] tables.
+
+
 === Usage scenario ===
 
 A single GeoPackage could include each of these relationships. For example, an airport can be considered as a point location with some attributes, which would be represented in GeoPackage as a features table. Similarly, the runways may be considered as polygons with attributes, which would be represented in GeoPackage as a different features table. See <<img_airportsandrunways>>. The mapping between those feature tables can be represented using the Related Tables Extension, so that a graphical user interface could identify and select the runways for a particular airport, including associated attributes and metadata.
