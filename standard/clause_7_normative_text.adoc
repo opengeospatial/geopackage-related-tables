@@ -85,11 +85,13 @@ This specification makes no statement on the cardinality of a user-defined mappi
 
 [[user_defined_related_data_table]]
 ==== User-Defined Related Data Tables
-There are no explicit requirements for a generic user-defined related data table. However, interoperability is improved if a specific requirements class is used. The following subsections describe three requirements classes.
+There are no explicit requirements for a generic user-defined related data table. However, interoperability is improved if a specific requirements class is used. The following subsections describe currently defined requirements classes.
 
 * <<media_rc>> (for multimedia files)
 * <<sa_rc>> (for text and numeric data)
 * <<f_rc>> (for features)
+* <<attr_rc>> (for attributes metadata)
+* <<tiles_rc>> (for tiles)
 
 [[media_rc]]
 === Media Requirements Class
@@ -155,3 +157,25 @@ This requirements class allows a GeoPackage producer or editor to link features 
 include::requirements/relatedfeat-udft.adoc[]
 
 include::requirements/relatedfeat-table_def.adoc[]
+
+[[attr_rc]]
+=== Related Attributes Requirements class
+include::requirements/requirements_class_RelatedAttributes.adoc[]
+This requirements class allows a GeoPackage producer or editor to link metadata which may already exist in a GPKG Attributes table, including data types beyond the Simple Attributes set (e.g. GEOMETRY and BLOB).
+
+==== User-Defined Related Attributes Tables
+===== Table Definition
+include::requirements/relatedattr-udft.adoc[]
+
+include::requirements/relatedattr-table_def.adoc[]
+
+[[tiles_rc]]
+=== Related Tiles Requirements class
+include::requirements/requirements_class_RelatedTiles.adoc[]
+This requirements class allows a GeoPackage producer or editor to link to individual tiles in a GPKG tile pyramid user data table.
+
+==== User-Defined Related Tiles Tables
+===== Table Definition
+include::requirements/relatedtiles-udft.adoc[]
+
+include::requirements/relatedtiles-table_def.adoc[]
