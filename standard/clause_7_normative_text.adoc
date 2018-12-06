@@ -161,7 +161,7 @@ include::requirements/relatedfeat-table_def.adoc[]
 [[attr_rc]]
 === Related Attributes Requirements class
 include::requirements/requirements_class_RelatedAttributes.adoc[]
-This requirements class allows a GeoPackage producer or editor to link metadata which may already exist in a GPKG Attributes table, including data types beyond the Simple Attributes set (e.g. GEOMETRY and BLOB).
+This requirements class allows a GeoPackage producer or editor to link metadata which may already exist in a GPKG Attributes table, including data types beyond the Simple Attributes set (e.g. BLOB data).
 
 ==== User-Defined Related Attributes Tables
 ===== Table Definition

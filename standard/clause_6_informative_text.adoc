@@ -65,7 +65,7 @@ An example of this is linking the location of a condominium (town house) or apar
 
 The Attributes conformance class is used for related tables that comply with the GPKG http://www.geopackage.org/spec/#attributes[attributes] table type. This is intended to support additional relationships to data which may already be stored as GPKG metadata.
 
-As with the Simple Attributes conformance class, only two columns are required in the related attributes table - the primary key, and one other column. The Related Tables Extension does not constrain or codify what additional columns can be. Unlike a Simple Attributes table, an Attributes table may include all data types allowed in a GPKG http://www.geopackage.org/spec/#attributes[attributes] metadata table (e.g. GEOMETRY and BLOB data types).
+As with the Simple Attributes conformance class, only two columns are required in the related attributes table - the primary key, and one other column. The Related Tables Extension does not constrain or codify what additional columns can be. Unlike a Simple Attributes table, an Attributes table may include all data types allowed in a GPKG http://www.geopackage.org/spec/#attributes[attributes] metadata table (e.g. BLOB data types).
 
 ==== Tiles
 
