@@ -35,7 +35,7 @@ The following information is provided in compliance with the GeoPackage Extensio
 
 * Extension Author: GeoPackage SWG; author_name `gpkg` to be used upon adoption.
 * Extension Name or Template: `related_tables`; upon adoption the alias `gpkg_related_tables` MAY be used
-* Extension Type: This extension provides new requirements dependent on GeoPackage http://www.geopackage.org/spec120/index.html#features[Clause 2.1] and http://www.geopackage.org/spec120/index.html#attributes[Clause 2.4].
+* Extension Type: This extension provides new requirements dependent on GeoPackage http://www.geopackage.org/spec121/index.html#features[Clause 2.1], http://www.geopackage.org/spec121/index.html#tiles[Clause 2.2], and http://www.geopackage.org/spec121/index.html#attributes[Clause 2.4].
 * Applicability: This extension defines relationships between feature tables and tables that hold related content, including multimedia, simple attributes, and other features.
 * Scope: read-write
 
