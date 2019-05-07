@@ -22,8 +22,8 @@ Conceptually, this extension is similar to the OGC Table Joining Service Interfa
 
 One use case for this extension is to associate features with related multimedia content such as:
 
-* photographs.
-* audio or video files.
+* photographs;
+* audio or video files; and
 * PDFs.
 
 There are many examples of where the RTE can be used including relating parcel (land lot) features to pictures of that parcel or linking census boundaries to the related demographic census data.
