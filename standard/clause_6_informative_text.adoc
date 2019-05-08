@@ -18,7 +18,7 @@ Mapping tables are unique to each pair of tables. The appropriate mapping table 
  * attributes
  * tiles
 
-The relationships can be considered directional, in that they relate primary keys of two tables in terms of base (the "left" or "from" side of the mapping) and related (the "right" or "to" side of the mapping). Since the related tables are valid GPKG 1.2 table types (potentially with some additional constraints), they can form the base side of another mapping. This allows chaining (directed graph) of relationships as appropriate to represent the modelled data. See <<img_related_tables_uml>>.
+The relationships can be considered directional, in that they relate primary keys of two tables in terms of base (the "left" or "from" side of the mapping) and related (the "right" or "to" side of the mapping). Since the related tables are valid GPKG 1.2 table types (potentially with some additional constraints), they can form the base side of another mapping. This allows chaining (directed graph) of relationships as appropriate to represent the modeled data. See <<img_related_tables_uml>>.
 
 [#img_related_tables_uml,reftext='{figure-caption} {counter:figure-num}']
 .Related Tables UML Diagram
@@ -38,9 +38,9 @@ Note that the related table does not need to include additional columns, althoug
 
 For example, additional column content might include:
 
- * An indicator of the size of the media content (although this can be determined using the SQLite `length()` function)
- * A title or description of the content of the media BLOB
- * License information, usage restrictions, or security constraints
+ * An indicator of the size of the media content (although this can be determined using the SQLite `length()` function);
+ * A title or description of the content of the media BLOB; and/or
+ * License information, usage restrictions, or security constraints.
 
 
 ==== Simple Attributes
