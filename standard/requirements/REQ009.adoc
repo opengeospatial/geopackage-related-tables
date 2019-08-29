@@ -1,7 +1,7 @@
 [[r9]]
 [width="90%",cols="2,6"]
 |===
-|*Requirement 9* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt +
+|*Requirement 9 – User Defined Mapping Table* {set:cellbgcolor:#CACCCE}|/req/table-defs/udmt +
  +
 
 A user-defined mapping table or view SHALL contain all of the columns described in <<gpkgext_user_defined_mapping_table>>.
