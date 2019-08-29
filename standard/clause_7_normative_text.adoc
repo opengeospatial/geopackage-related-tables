@@ -16,8 +16,8 @@ include::requirements/REQ003.adoc[]
 [cols=",,,,",options="header",]
 |=======================================================================
 |table_name|column_name|extension_name|definition|scope
-|`gpkgext_relations`|null|`related_tables`|TBD|`read-write`
-|_name of actual <<user_defined_mapping_table,User Defined Mapping Table>>_|null|`related_tables`|TBD|`read-write`
+|`gpkgext_relations`|null|`related_tables`|{permalink}|`read-write`
+|_name of actual <<user_defined_mapping_table,User Defined Mapping Table>>_|null|`related_tables`|{permalink}|`read-write`
 |=======================================================================
 
 ==== `gpkgext_relations`
