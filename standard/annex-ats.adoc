@@ -6,7 +6,7 @@
 Ensure that there is a conformance class for each requirements class and a test for each requirement (identified by requirement name and number)
 
 === Common Requirements
-
+[float]
 ==== <<r1,gpkg_extensions Row>>
 [cols="20h,80d",width="100%"]
 |===
@@ -32,6 +32,7 @@ Fail if number of rows returned is not 1.
 Pass if results match required content from <<gpkg_extensions_records>>, else Fail.
 |===
 
+[float]
 ==== <<r2,gpkgext_relations Row>>
 
 [cols="20h,80d",width="100%"]
@@ -53,7 +54,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 4. Pass if no fails.
 |===
 
-
+[float]
 ==== <<r3,gpkg_extensions User Defined Mapping Table Rows>>
 
 [cols="20h,80d",width="100%"]
@@ -66,12 +67,12 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 
 2. Fail if number of rows returned is 0.
 
-3. For each row returned in Step 1, fail if `column_name` is not null, `definition` is not "TBD" or `scope` is not "read-write".
+3. For each row returned in Step 1, fail if `column_name` is not null or `scope` is not "read-write".
 
 4. Pass if no fails.
 |===
 
-
+[float]
 ==== <<r4,gpkgext_relations Table>>
 
 [cols="20h,80d",width="100%"]
@@ -89,7 +90,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 4. Fail otherwise.
 |===
 
-
+[float]
 ==== <<r5,gpkgext_relations Base Table>>
 
 [cols="20h,80d",width="100%"]
@@ -131,6 +132,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 4. Pass if no fails.
 |===
 
+[float]
 ==== <<r6,gpkgext_relations Related Table>>
 
 [cols="20h,80d",width="100%"]
@@ -172,7 +174,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 4. Pass if no fails.
 |===
 
-
+[float]
 ==== <<r7,gpkgext_relations User Defined Mapping Table>>
 
 [cols="20h,80d",width="100%"]
@@ -194,7 +196,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 4. Pass if no fails.
 |===
 
-
+[float]
 ==== <<r8,gpkgext_relations Relation Name>>
 
 [cols="20h,80d",width="100%"]
@@ -203,12 +205,12 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 |Requirement: |/req/table-defs/ger_relname
 |Test purpose: | Verify that the relation_name entries listed in `gpkgext_relations` table are valid.
 |Test method: |
-1. `SELECT base_table_name, relation_name FROM gpkgext_relations WHERE (relation_name NOT IN ('features', 'simple_attributes', 'media') AND relation_name NOT LIKE 'x-_%\__%' ESCAPE '\')`
+1. `SELECT base_table_name, relation_name FROM gpkgext_relations WHERE (relation_name NOT IN ('features', 'simple_attributes', 'media', 'attributes', 'tiles') AND relation_name NOT LIKE 'x-_%\__%' ESCAPE '\')`
 
 2. Fail if returns any rows
 |===
 
-
+[float]
 ==== <<r9,User Defined Mapping Table>>
 
 [cols="20h,80d",width="100%"]
@@ -232,7 +234,7 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 4. Pass if no fails.
 |===
 
-
+[float]
 ==== <<r10,User Defined Mapping Table Base ID>>
 
 [cols="20h,80d",width="100%"]
@@ -245,12 +247,12 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 
 2. Fail if returns an empty result set.
 
-3. For each row returned in Step 1, fail if any `base_id` value in {mapping_table_name} does not match an entry in the {base_primary_column} column of the {base_table_name} table.
+3. For each row returned in Step 1, fail if `SELECT a.base_id AS mapping_id, b.{base_primary_column} AS base_id FROM {mapping_table_name} a LEFT OUTER JOIN {base_table_name} b ON a.base_id = b.{base_primary_column}) WHERE base_id IS NULL;` returns any rows.
 
 4. Pass if no fails.
 |===
 
-
+[float]
 ==== <<r11,User Defined Mapping Table Related ID>>
 
 [cols="20h,80d",width="100%"]
@@ -263,11 +265,13 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 
 2. Fail if returns an empty result set.
 
-3. For each row returned in Step 1, fail if any `related_id` value in {mapping_table_name} does not match an entry in the {related_primary_column} column of the {related_table_name} table.
+3. For each row returned in Step 1, fail if `SELECT a.related_id AS mapping_id, b.{related_primary_column} AS related_id FROM {mapping_table_name} a LEFT OUTER JOIN {related_table_name} b ON a.related_id = b.{related_primary_column}) WHERE related_id IS NULL;` returns any rows.
 
 4. Pass if no fails.
 |===
 
+=== Media Requirements Class
+[float]
 ==== <<r12,Media Relation Name>>
 
 [cols="20h,80d",width="100%"]
@@ -277,10 +281,11 @@ Pass if results match required content from <<gpkg_extensions_records>>, else Fa
 |Test purpose: | Verify whether the requirements class applies for user-defined media tables 
 |Test method: | `SELECT COUNT(*) FROM gpkgext_relations WHERE relation_name = 'media'`
 
-Requirement class is not in use if count is zero
+Requirement class is not in use if count is zero.
 
 |===
 
+[float]
 ==== <<r13,Media Table Definition>>
 
 [cols="20h,80d",width="100%"]
@@ -303,6 +308,8 @@ Requirement class is not in use if count is zero
 
 |===
 
+=== Simple Attributes Requirements Class
+[float]
 ==== <<r14,Simple Attributes Relation Name>>
 
 [cols="20h,80d",width="100%"]
@@ -316,6 +323,7 @@ Requirement class is not in use if count is zero
 
 |===
 
+[float]
 ==== <<r15,Simple Attributes Table Definition>>
 
 [cols="20h,80d",width="100%"]
@@ -340,6 +348,8 @@ Requirement class is not in use if count is zero
 
 |===
 
+=== Related Features Requirements Class
+[float]
 ==== <<r16,Features Relation Name>>
 
 [cols="20h,80d",width="100%"]
@@ -353,6 +363,7 @@ Requirement class is not in use if count is zero
 
 |===
 
+[float]
 ==== <<r17,Features Table Definition>>
 
 [cols="20h,80d",width="100%"]
@@ -369,7 +380,83 @@ Requirement class is not in use if count is zero
 
 - Fail if returns an empty result set.
 
-- Fail if the column names, types, nullability, default values, primary key, and unique key constraints do match all of those in the contents of [http://www.geopackage.org/spec/#feature_user_tables]. 
+- Fail if the column names, types, nullability, default values, primary key, and unique key constraints do match all of those in the contents of http://www.geopackage.org/spec121/#feature_user_tables. 
+
+3. Pass if no fails.
+
+|===
+
+=== Related Attributes Requirements Class
+[float]
+==== <<r18,Attributes Relation Name>>
+
+[cols="20h,80d",width="100%"]
+|===
+|Test id: |/conf/relatedattr/udat
+|Requirement: |/req/relatedattr/udat
+|Test purpose: | Verify whether the requirements class applies for user-defined features tables
+|Test method: | `SELECT COUNT(*) FROM gpkgext_relations WHERE relation_name = 'features'`
+
+Requirement class is not in use if count is zero
+
+|===
+
+[float]
+==== <<r19,Attributes Table Definition>>
+
+[cols="20h,80d",width="100%"]
+|===
+|Test id: |/conf/relatedattr/table_def
+|Requirement: |/req/relatedattr/table_def
+|Test purpose: | Verify that the user-defined related features tables have the correct structure
+|Test method: |
+1. `SELECT related_table_name FROM gpkgext_relations WHERE relation_name = 'attributes'`
+
+2. For each related_table_name row returned in Step 1:
+
+- `PRAGMA table_info({related_table_name})`
+
+- Fail if returns an empty result set.
+
+- Fail if the column names, types, nullability, default values, primary key, and unique key constraints do match all of those in the contents of http://www.geopackage.org/spec121/#_attributes_user_data_tables. 
+
+3. Pass if no fails.
+
+|===
+
+=== Related Tiles Requirements Class
+[float]
+==== <<r20,Tiles Relation Name>>
+
+[cols="20h,80d",width="100%"]
+|===
+|Test id: |/conf/relatedtiles/udat
+|Requirement: |/req/relatedtiles/udat
+|Test purpose: | Verify whether the requirements class applies for user-defined features tables
+|Test method: | `SELECT COUNT(*) FROM gpkgext_relations WHERE relation_name = 'features'`
+
+Requirement class is not in use if count is zero
+
+|===
+
+[float]
+==== <<r21,Tiles Table Definition>>
+
+[cols="20h,80d",width="100%"]
+|===
+|Test id: |/conf/relatedtiles/table_def
+|Requirement: |/req/relatedtiles/table_def
+|Test purpose: | Verify that the user-defined related tiles tables have the correct structure
+|Test method: |
+1. `SELECT related_table_name FROM gpkgext_relations WHERE relation_name = 'tiles'`
+
+2. For each related_table_name row returned in Step 1:
+
+- `PRAGMA table_info({related_table_name})`
+
+- Fail if returns an empty result set.
+
+- Fail if the column names, types, nullability, default values, primary key, and unique key constraints do match all of those in the contents of http://www.geopackage.org/spec121/#tiles_user_tables. 
 
 3. Pass if no fails.
 
